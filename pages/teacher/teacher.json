@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "教师管理",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

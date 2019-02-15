@@ -1,0 +1,46 @@
+/* pages/welogin/welogin.wxss */
+.we-login{
+  display: flex;
+  flex-direction: column;
+  width: 640rpx;
+  margin: 0 auto;
+  align-items: center
+}
+.login-top{
+  width: 100%;
+  text-align: center;
+  padding: 100rpx 0 80rpx 0;
+  border-bottom: 1rpx solid #d8d8d8;
+}
+.login-top image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 28rpx;
+  vertical-align: bottom;
+  margin-bottom: 20rpx;
+}
+.min-name{
+  font-size: 36rpx;
+  color: #333;
+  text-align: center
+}
+
+.login-desc{
+  padding: 50rpx 0;
+}
+.login-desc view{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.login-desc view:nth-of-type(1){
+  font-size: 34rpx;
+  color: #333;
+}
+
+.login-desc view:nth-of-type(2){
+  font-size: 34rpx;
+  color: #a5a5a5;
+}
+.login-btn button{
+  width: 640rpx;
+}

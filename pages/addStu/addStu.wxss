@@ -1,0 +1,96 @@
+/* pages/addStu/addStu.wxss */
+.stu{
+padding:0 20rpx;
+}
+.search {
+padding:20rpx;
+background:#fff;
+margin-bottom:20rpx;
+}
+.search input{
+height:70rpx;
+line-height:70rpx;
+background:#e9ecf0;
+border-radius:10rpx;
+padding-left: 50rpx;
+}
+.top{
+    background: #fff;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    padding-bottom:0;
+}
+
+.selected{
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 10rpx;
+    flex-wrap: wrap;
+}
+.boxItem{
+    margin-right: 30rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+    width: 80rpx;
+}
+
+.avatar{
+    position: relative;
+}
+
+
+.avatar .image{
+    
+    height: 64rpx;
+    width: 64rpx;
+    border-radius: 32rpx;
+    vertical-align: bottom;
+}
+.reduce{
+    height: 34rpx;
+    width: 34rpx;
+    position: absolute;
+    right: -7rpx;
+    top: -0;
+
+}
+
+.Ssize{
+  color: #5a5a5a;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.header{
+    width: 64rpx;
+    height:64rpx;
+    margin-right: 20rpx;
+    border-radius: 32rpx;
+}
+
+.list{
+    padding: 0 20rpx;
+    background: #fff;
+    padding-bottom: 120rpx;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx 0;
+    height: 64rpx;
+}
+.checkStatus{
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 20rpx;
+}

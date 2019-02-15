@@ -1,0 +1,25 @@
+{
+  "name": "happybirds",
+  "version": "1.0.0",
+  "description": "this is happyBirds",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlc100admin/weapp_saas.git"
+  },
+  "keywords": [
+    "music",
+    "backend",
+    "management",
+    "minapp"
+  ],
+  "author": "yangyang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wlc100admin/weapp_saas/issues"
+  },
+  "homepage": "https://github.com/wlc100admin/weapp_saas#readme"
+}

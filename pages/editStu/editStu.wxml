@@ -1,0 +1,80 @@
+<zan-toptips
+  content="{{content}}"
+  duration="{{ duration }}"
+  is-show="{{ $zanui.toptips.show }}"
+/>
+<view class="item Nsize cell-space head" bindtap='upload' style='margin-bottom:8rpx'>
+  <view class='headLeft'>
+    <text>学员头像</text>
+  </view>
+  <view class='head_r'>
+  <image src='{{avatar}}' class='logo' mode='scaleToFill'></image>
+
+  <image src='../../images/enter.png' class='stuMore'></image>
+  </view>
+  
+</view>
+
+<view class='read'>
+  <view class='item Nsize cell-space'>
+    <view><text>姓名</text><text class='inpu_tip'>(必填)</text></view>
+    <input type='text' value='{{username}}' bindinput='user' placeholder='请输入姓名' placeholder-class='holder'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+  <view><text>联系方式</text><text class='inpu_tip'>(必填)</text></view>
+    <input type='text' value='{{mobile}}' bindinput='mobile' placeholder='请输入联系方式' placeholder-class='holder'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+    
+    <view>
+    <text>选择性别</text>
+    <text class='inpu_tip'>(必填)</text>
+    </view>
+    
+    <picker bindchange="genderChange" value="{{index}}" range="{{genders}}" range-key="{{'gender_txt'}}">
+      <view class="picker">
+      <block wx:if="{{index==''}}">
+        <text wx:if="{{gender==1}}">男</text>
+        <text wx:if="{{gender==2}}">女</text>
+        <text wx:if="{{gender==0}}">请选择</text>
+      </block>
+         {{genders[index].gender_txt}}
+
+      </view>
+    </picker>
+  </view>
+
+  <view class='item cell-space Nsize'>
+    
+
+    <view>
+    <text>出生日期</text>
+    <text class='inpu_tip'>(选填)</text>
+    </view>
+    <picker mode="date" value="{{birthday}}" bindchange="dateChange">
+      <view class="picker">
+        <text wx:if="{{birthday==''}}">选择出生日期</text>  {{birthday}}
+      </view>
+    </picker>
+  </view>
+
+
+   <view class='item item_addr Nsize' style='height:150rpx;margin-top:8rpx;'>
+  
+    <textarea value='{{address}}' placeholder='请输入家庭地址（选填）' bindinput='addressed'></textarea>
+  </view>
+</view>
+
+
+<view class="Nsize remark">
+  <!-- <view>备注</view> -->
+  <textarea value='{{remark}}' class='Nsize' placeholder='请输入备注' placeholder-class='holder' bindinput='remark'></textarea>
+  <view class="restrict">
+    {{currenttextNumber}}/{{maxtext}}
+  </view>
+</view>
+
+
+<view class='bt-fixed' bindtap='editStu'>修改学员</view>

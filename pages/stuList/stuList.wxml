@@ -1,0 +1,21 @@
+<!--pages/stuList/stuList.wxml-->
+<view wx:if="{{items.length!=0}}">
+
+<view class='search'>
+  <input class='Nsize' type='text' bindconfirm="searchName" bindinput='inpuName' value='{{name}}' placeholder='请输入学员姓名' placeholder-class='holder' placeholder-style='text-indent:50rpx;'></input>
+</view>
+
+<view class='list'>
+  <view class='item' bindtap='checks' wx:for="{{items}}" data-key="{{index}}" data-index="{{index}}" data-name="{{item.username}}" data-id="{{item.student_id}}" data-avatar="{{item.avatar}}">
+    <image wx:if="{{item.state==0 || item.state==undefined}}" src='../../images/uncheck.png' class='checkStatus'></image>
+    <image wx:if="{{item.state==1}}" src='../../images/checked.png' class='checkStatus'></image>
+    <image src='{{item.avatar}}' class='header' />
+    <view class='name Nsize'>{{item.username}}</view>
+  </view>
+</view>
+</view>
+
+<view class='NoData' wx:if="{{items.length==0 && noResult==false}}">
+  <image src='../../images/nostu.png'></image>
+  <view class='no_Add' bindtap='add'>创建学员</view>
+</view>

@@ -1,0 +1,19 @@
+<!--pages/editCourse/editCourse.wxml-->
+<view class='bt-fixed' bindtap='save'>保存修改</view>
+<view class='courseList Nsize'>
+<view>课程名称</view>
+<input type='text' value="{{oldName}}" bindinput='newName'></input>
+</view>
+
+<!-- <view class='courseList Nsize'>
+<view>课时数</view>
+<input type='text' value="{{hour}}" bindinput='newHour'></input>
+</view> -->
+
+<!-- <view class='courseList Nsize'>
+<input type='text' value="{{price}}" bindinput='newPrice'></input>
+</view> -->
+
+<!-- <view class='delate' bindtap='delate'>删除</view> -->
+
+

@@ -1,0 +1,317 @@
+<!-- <view class="top">11221</view> -->
+
+<view class='tabbb'>
+  <view style='width:375rpx'>
+    <zan-tab class="tabed" scroll="{{ scroll }}" list="{{ list }}" selected-id="{{ selectedId }}" height="{{ height }}" fixed="{{ fixed }}" bindtabchange="tabchange" style="text-align:center" />
+  </view>
+  <view class='btngroup Nsize'>
+    <view bindtap='slectWay' class="{{cur==0?'active':''}}" data-index="0">按老师</view>
+    <view bindtap='slectWay' class="{{cur==1?'active':''}}" data-index="1">按教室</view>
+    <text class='lines'></text>
+  </view>
+</view>
+
+
+<!-- 顶部日期搜索 -->
+<view class='topDate' wx:if="{{selectedId==0}}">
+  <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+    <view class="picker dateItemDate" >
+      <text>{{date}}({{week}})</text>
+      <image src='../../images/calendar.png'></image>
+    </view>
+  </picker>
+</view>
+
+<view class="dateSpace">
+<view class="dateItem dateItemDate">
+    <picker mode="date" value="{{date2}}" bindchange="bindDateChange2">
+      <view class="picker">
+        <text>{{date2}}({{week2}})</text>
+        <image src='../../images/calendar.png'></image>
+      </view>
+    </picker>
+  </view>
+  <view class="dateItem">
+    
+    <picker  value="{{roomIndex}}" range="{{roomList}}" range-key='name' bindchange="roomChange">
+      <view class="picker">
+        <text wx:if="{{roomIndex==''}}">{{roomList[0].name}}</text>
+        <text wx:if="{{!roomList}}">暂无教室</text>
+        <text>{{roomList[roomIndex].name}}</text>
+        <image src='../../images/select2.png'></image>
+      </view>
+    </picker>
+  </view>
+  
+</view>
+
+<swiper style='height:calc(100vh - 108px);' current='{{selectedId}}' bindchange="change">
+  <!-- 全部 -->
+  <swiper-item>
+    <scroll-view scroll-y="true" style='height:calc(100vh - 108px)'>
+
+      <scroll-view scroll-y="true" class="wrapper" style='height:calc(100vh - 108px)'>
+        <view class="main" wx:if="{{dayList.length!=0}}">
+          <scroll-view scroll-y="true" class="left">
+            <view class="formHead">
+              <view  wx:if="{{cur==0&&selectedId==0}}" class='headTle'>姓名</view>
+              <view  wx:if="{{cur==1&&selectedId==0}}" class='headTle'>教室</view>
+              <view class='headTle'>时间</view>
+            </view>
+            <view class="time">06:00</view>
+
+            <view class="time">07:00</view>
+
+            <view class="time">08:00</view>
+
+            <view class="time">09:00</view>
+
+            <view class="time">10:00</view>
+
+            <view class="time">11:00</view>
+
+            <view class="time">12:00</view>
+
+            <view class="time">13:00</view>
+
+            <view class="time">14:00</view>
+
+            <view class="time">15:00</view>
+
+            <view class="time">16:00</view>
+
+            <view class="time">17:00</view>
+
+            <view class="time">18:00</view>
+
+            <view class="time">19:00</view>
+
+            <view class="time">20:00</view>
+
+            <view class="time">21:00</view>
+            <view class="time">22:00</view>
+            <view class="time">23:00</view>
+
+
+          </scroll-view>
+          <scroll-view scroll-x="true" class="right" style='height:100%'>
+            <view style='display:flex;flex-direction:row;'>
+              <view class='listItems Usize' wx:for="{{dayList}}" wx:for-item="day" wx:for-index="index" wx:key="{{index}}">
+                <view class='listItemtle'>
+                {{day.title}}
+                </view>
+
+                <view class='boxCell {{ide}}' wx:for="{{cell}}" wx:for-index="ide" wx:key="{{idex}}" wx:for-item="cell">
+                  <block wx:for="{{day.shedules}}" wx:for-item='sche' wx:for-index="s_ind" wx:key="{{s_ind}}">
+                    <block wx:if="{{ide==sche.time_index}}">
+                      <block wx:if="{{sche.end_hour - sche.start_hour==0}}">
+
+                        <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_minute-sche.start_minute==0)?'240rpx':(sche.end_minute-sche.start_minute)*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(ide+6)}}">
+                          <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                          <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                          <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                        </view>
+
+                      </block>
+                      <block wx:if="{{sche.end_hour - sche.start_hour!=0}}">
+                        <block wx:if="{{sche.end_minute > sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_minute - sche.start_minute +60*(sche.end_hour - sche.start_hour))*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(ide+6)}}">
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+                        <block wx:if="{{sche.end_minute < sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(60*(sche.end_hour - sche.start_hour)-(sche.start_minute - sche.end_minute))*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(ide+6)}}">
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+
+                        <block wx:if="{{sche.end_minute == sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_hour - sche.start_hour)*60*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(ide+6)}}">
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{ide+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+
+                      </block>
+
+                    </block>
+                    <block wx:if="{{ide!=sche.time_index && s_ind==0 && ide!= sche.time_index+1 && ide!= sche.time_index+2 && ide!= sche.time_index+3 && ide!= sche.time_index+4 && ide!= sche.time_index+5 && ide!= sche.time_index+6 && ide!= sche.time_index+7 && ide!= sche.time_index+8 && ide!= sche.time_index+9 && ide!= sche.time_index+10}}">
+                      <view class='listItemsCell {{s_ind}}'></view>
+                      <view class='listItemsCell {{s_ind}}'></view>
+                    </block>
+                  </block>
+
+                  <block wx:if="{{day.shedules.length==0}}">
+                    <view class='listItemsCell'></view>
+                    <view class='listItemsCell'></view>
+                  </block>
+                </view>
+                <!-- <block  wx:for="{{day.shedules}}" wx:for-index="ide" wx:key="{{idex}}" wx:for-item="cell">
+                  <view class='boxCell'>
+                        <view class='listItemsCell'>{{cell.shedule_members}}</view>
+                        <view class='listItemsCell'>{{cell.shedule_class_name}}</view>
+                  </view> 
+                </block>
+                <block wx:if="{{day.shedules.length==0}}" wx:for="{{cell}}">
+                      <view class='listItemsCell'></view>
+                     <view class='listItemsCell'></view>
+                </block> -->
+
+
+              </view>
+            </view>
+
+          </scroll-view>
+        </view>
+        <view class='noDatass' wx:if="{{dayList.length==0}}">
+          <image src='../../images/nodata.png'></image>
+        </view>
+      </scroll-view>
+    </scroll-view>
+  </swiper-item>
+
+  <!-- 周课表 -->
+  <swiper-item >
+    <scroll-view scroll-y="true" style='height:calc(100vh - 108px)'>
+
+      <scroll-view scroll-y="true" class="wrapper" style='height:calc(100vh - 108px)'>
+        <view class="main" wx:if="{{weeklist.length!=0}}">
+          <scroll-view scroll-y="true" class="left">
+            <view class="formHead">
+              <view class='headTle'>日期</view>
+              <view class='headTle'>时间</view>
+            </view>
+            <view class="time">06:00</view>
+
+            <view class="time">07:00</view>
+
+            <view class="time">08:00</view>
+
+            <view class="time">09:00</view>
+
+            <view class="time">10:00</view>
+
+            <view class="time">11:00</view>
+
+            <view class="time">12:00</view>
+
+            <view class="time">13:00</view>
+
+            <view class="time">14:00</view>
+
+            <view class="time">15:00</view>
+
+            <view class="time">16:00</view>
+
+            <view class="time">17:00</view>
+
+            <view class="time">18:00</view>
+
+            <view class="time">19:00</view>
+
+            <view class="time">20:00</view>
+
+            <view class="time">21:00</view>
+            <view class="time">22:00</view>
+            <view class="time">23:00</view>
+
+          </scroll-view>
+          <scroll-view scroll-x="true" class="right" style=''>
+            <!-- <scroll-view scroll-x="true" class='useList Nsize' style="width:100%">
+              <view  wx:for="{{weeklist}}">{{item.title}}</view>
+            </scroll-view> -->
+            <view style='display:flex;flex-direction:row;'>
+
+              <view class='listItems Usize' wx:for="{{weeklist}}" wx:for-item="item" wx:key="{{index}}">
+                <view class='listItemtle weekItem'> {{item.title}}{{item.week}}</view>
+
+                <view class='boxCell {{idx}}' wx:for="{{cell}}" wx:for-index="idx" wx:for-item="cell" wx:key="{{idx}}">
+                  <block wx:for="{{item.shedules}}" wx:for-item='sche' wx:for-index="s_ind" wx:key="{{s_ind}}">
+                    <block wx:if="{{idx==sche.time_index}}">
+
+                <!-- <view class='checks' data-id="{{sche.shedule_id}}" style="height:{{(sche.end_minute-sche.start_minute==0)?'120rpx':(sche.end_minute-sche.start_minute)*2}}rpx;top:{{sche.start_minute*2}}rpx">
+                        <view class='listItemsCell ss {{s_ind}}'>{{sche.shedule_members}}</view>
+                        <view class='listItemsCell ss {{s_ind}}' bindtap="signdetail" data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                      </view> -->
+
+
+
+                      <block wx:if="{{sche.end_hour - sche.start_hour==0}}">
+                        <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_minute-sche.start_minute==0)?'240rpx':(sche.end_minute-sche.start_minute)*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(idx+6)}}">
+                          <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                          <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                          <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                        </view>
+                      </block>
+
+                      <block wx:if="{{sche.end_hour - sche.start_hour!=0}}">
+                        <block wx:if="{{sche.end_minute > sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_minute - sche.start_minute +60*(sche.end_hour - sche.start_hour))*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(idx+6)}}">
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+                        <block wx:if="{{sche.end_minute < sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(60*(sche.end_hour - sche.start_hour)-(sche.start_minute - sche.end_minute))*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(idx+6)}}">
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+
+                        <block wx:if="{{sche.end_minute === sche.start_minute}}">
+                          <view class="checks {{sche.status==2?'is_jieke':''}}" bindtap="signdetail" data-id="{{sche.shedule_id}}" style="height:{{(sche.end_hour - sche.start_hour)*60*4}}rpx;top:{{sche.start_minute*4}}rpx" wx:if="{{sche.start_hour==(idx+6)}}">
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.banji_info.name}}</view>
+                            <view class='listItemsCell ss {{idx+6}}' data-id="{{sche.shedule_id}}">{{sche.shedule_class_name}}</view>
+                            <image src='../../images/jieke.png' class='jiekePic' wx:if="{{sche.status==2}}"></image>
+                          </view>
+                        </block>
+
+                      </block>
+
+
+
+
+
+
+
+
+
+                    </block>
+
+                    <block wx:if="{{idx!=sche.time_index && s_ind==0 && idx!= sche.time_index+1 && idx!= sche.time_index+2 && idx!= sche.time_index+3 && idx!= sche.time_index+4 && idx!= sche.time_index+5 && idx!= sche.time_index+6 && idx!= sche.time_index+7 && idx!= sche.time_index+8 && idx!= sche.time_index+9 && idx!= sche.time_index+10 && idx!= sche.time_index+11 && idx!= sche.time_index+12 && idx!= sche.time_index+13 && idx!= sche.time_index+14 && idx!= sche.time_index+15}}">
+                      <view class='listItemsCell {{s_ind}}'></view>
+                      <view class='listItemsCell {{s_ind}}'></view>
+                    </block>
+                  </block>
+                  <block wx:if="{{item.shedules.length==0}}">
+                    <view class='listItemsCell'></view>
+                    <view class='listItemsCell'></view>
+                  </block>
+                </view>
+
+              </view>
+
+            </view>
+
+          </scroll-view>
+        </view>
+
+        <view class='noDatass' wx:if="{{weeklist.length==0}}">
+          <image src='../../images/nodata.png'></image>
+        </view>
+      </scroll-view>
+    </scroll-view>
+
+
+  </swiper-item>
+
+</swiper>
+
+<!-- <view class='addNew' bindtap='addNew'><image src='../../images/adds3.png'></image></view> -->

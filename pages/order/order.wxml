@@ -1,0 +1,139 @@
+<!--pages/order/order.wxml-->
+<view class='search'>
+  <input class='Nsize' type='text' bindconfirm="searchName" bindinput='inpuName' value='{{name}}' placeholder='请输入学员姓名' placeholder-class='holder' placeholder-style='text-indent:50rpx;'></input>
+  <view class='stuTop'>
+    <image src='../../images/shai.png' bindtap="setModalStatus" data-status="1"></image>
+    <image src='../../images/addOrder.png' bindtap='addOrder'></image>
+  </view>
+</view>
+<view wx:if="{{contentlist.length!=0}}">
+<view class='orderBox'>
+
+  <view class='orderList' wx:for="{{contentlist}}" wx:key="{{item.id}}" bindtap='toDetail' data-id="{{item.id}}">
+    <view class='orderLeft'>
+      <view class='username Nszie'>
+        <image src='../../images/people.png'></image>
+        <text>{{item.student_info.username}}</text>
+        <text wx:if="{{item.contract_type==1}}" style='color:#77c6ff;border:1rpx solid #77c6ff;'>新增</text>
+        <text wx:if="{{item.contract_type==2}}" style='color:#ffd95c;border:1rpx solid #ffd95c;'>续签</text>
+        <text wx:if="{{item.contract_type==3}}" style='color:#ff9688;border:1rpx solid #ff9688;'>赠送</text>
+        <!-- <text wx:if="{{item.status==0}}" style="margin-left:30rpx">作废</text> -->
+        <!-- <text wx:if="{{item.status==1}}" style="margin-left:30rpx">正常</text> -->
+        <text wx:if="{{item.status==2}}" style="color:#ff9688;border:1rpx solid #ff9688;margin-left:20rpx">退费</text>
+      </view>
+      <view class='orderTle Nsize'>
+        <image src='../../images/courseicon.png'></image>
+        <text>{{item.title}}</text>
+        <text style="margin-left:20rpx;">{{item.lesson_count}}课时</text>
+      </view>
+
+      <!-- <view class='order_time Nsize actives' wx:if="{{item.status==2}}">
+        
+        
+      </view> -->
+      <view class='Usize'>
+        <image src='../../images/keshi2.png'></image>
+        <text>{{item.ctime}}</text>
+
+      </view>
+    </view>
+
+    <view class='orderRight'>
+      <text class='order_add'>+￥{{item.money}}</text>
+      <text class='order_back' wx:if="{{item.status==2}}">退费-￥{{item.refund_order.refund_lesson_money}}</text>
+      <text class='keshi_back' wx:if="{{item.refund_lesson_count!=0}}">退课时{{item.refund_order.refund_lesson_count}}</text>
+    </view>
+
+
+  </view>
+
+  <!-- 无更多数据提醒 -->
+  <view style='margin:20rpx 0'>
+    <block wx:if="{{contentlist.length>page_size && hasMoreData==true}}">
+          <zan-loadmore type="loading"></zan-loadmore>
+    </block>
+    <block wx:if="{{hasMoreData==false}}">
+      <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+    </block>
+  </view>
+
+</view>
+</view>
+<view class='NoDatad' wx:if="{{contentlist.length==0 && noResult==true}}">
+  <image src='../../images/noorder.png'></image>
+  <view class='no_Add' bindtap='addOrder'>添加订单</view>
+</view>
+
+
+
+
+
+<view class='models' wx:if="{{!hasrule}}">
+  暂无相关权限
+</view>
+
+
+
+<view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <!-- <view class="close_icon" bindtap="setModalStatus" data-status="0">×</view> -->
+  <view class="drawer_attr_content">
+    <view class='shaicont'>
+
+      <view class='shaiItem'>
+        <view class='shaiTle'>时间</view>
+        <view class='selectBoxs'>
+          <view class='dataBox'>
+            <view class='start'>
+              <picker mode="date" value="{{satrtdate}}" bindchange="startChange">
+                <view class="picker Nsize">
+                  {{satrtdate}}
+                  <text wx:if="{{satrtdate==''}}" style='color:#a5a5a5'>起始时间</text>
+                </view>
+              </picker>
+            </view>
+            <view class="dot">-</view>
+            <view class='start'>
+              <picker mode="date" value="{{enddate}}" bindchange="endChange">
+                <view class="picker Nsize">
+                  {{enddate}}
+                  <text wx:if="{{enddate==''}}" style='color:#a5a5a5'>截止时间</text>
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class='shaiItem'>
+        <view class='shaiTle'>订单类型</view>
+        <view class='selectBoxs'>
+          <view class="{{stuType_cur==1?'selectItemEd':'selectItem'}}" data-learn_status="1" bindtap='stuType'>新增</view>
+          <view class="{{stuType_cur==2?'selectItemEd':'selectItem'}}" data-learn_status="2" bindtap='stuType'>续签</view>
+          <view class="{{stuType_cur==3?'selectItemEd':'selectItem'}}" style='margin-right:0' data-learn_status="3" bindtap='stuType'>赠送</view>
+        </view>
+      </view>
+      <view class='shaiItem'>
+        <view class='shaiTle'>是否退费</view>
+        <view class='selectBoxs'>
+          <view class="{{w_cur==2?'selectItemEd':'selectItem'}}" data-w_index="2" bindtap='reBack'>是</view>
+          <view class="{{w_cur==1?'selectItemEd':'selectItem'}}" data-w_index="1" bindtap='reBack'>否</view>
+        </view>
+      </view>
+
+
+      <view class='shaiItem'>
+        <view class='shaiTle'>课程筛选</view>
+        <view class='selectBoxs muti'>
+          <view wx:for="{{lessonList}}" class="{{lesson_cur==item.id?'selectItemEd':'selectItem'}}" data-id="{{item.id}}" bindtap='slectCourses'>{{item.name}}</view>
+
+
+        </view>
+      </view>
+    </view>
+    <view class='bt_box'>
+      <view class='bt_boxItem' bindtap='reset'>重置</view>
+      <view class='bt_boxItem' bindtap='sendModel'>完成</view>
+    </view>
+  </view>
+</view>

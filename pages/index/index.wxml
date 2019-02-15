@@ -1,0 +1,166 @@
+<!--index.wxml-->
+
+
+<view class='indexList'>
+  <!-- <view class='listItem' bindtap='arrange'>
+    <image src='../../images/paike.png'></image>
+    <view class='itemTle'>排课管理</view>
+  </view>
+  <view class='listItem' bindtap='ctypes'>
+    <image src='../../images/kecheng.png'></image>
+    <view class='itemTle'>课程管理</view>
+  </view>
+  <view class='listItem' bindtap='teacher'>
+    <image src='../../images/jiaoshi.png'></image>
+    <view class='itemTle'>教师管理</view>
+  </view>
+  <view class='listItem' bindtap='sign'>
+    <image src='../../images/qiandao.png'></image>
+    <view class='itemTle'>签到课评</view>
+  </view> -->
+  <view class='box'>
+    <view class='title Nsize'>
+      <view class='line'></view>
+      <text>快捷入口</text>
+    </view>
+    <view class='menu'>
+      
+      <block wx:for="{{myRule}}">
+
+        <!-- <view class='menuItem' bindtap='order' wx:if="{{item==88}}">
+          <image src='../../images/order.png'></image>
+          <view class='menuTle Nsize'>购课订单</view>
+        </view> -->
+        <view class='menuItem' bindtap='arrange' wx:if="{{item==91}}">
+          <image src='../../images/arrange.png'></image>
+          <view class='menuTle Nsize'>排课表</view>
+        </view>
+        <view class='menuItem' bindtap='classManage' wx:if="{{item==102}}">
+          <image src='../../images/classManage.png'></image>
+          <view class='menuTle Nsize'>班级管理</view>
+        </view>
+        <view class='menuItem' bindtap='addstu' wx:if="{{item==103}}">
+          <image src='../../images/stu.png'></image>
+          <view class='menuTle Nsize'>添加学员</view>
+        </view>
+
+
+        <view class='menuItem' bindtap='ctypes' wx:if="{{item==92}}">
+          <image src='../../images/course.png'></image>
+          <view class='menuTle Nsize'>课程管理</view>
+        </view>
+
+        <view class='menuItem' bindtap='teacher' wx:if="{{item==93}}">
+          <image src='../../images/teacherManage.png'></image>
+          <view class='menuTle Nsize'>教师管理</view>
+        </view>
+
+        <view class='menuItem' bindtap='classRoom' wx:if="{{item==100}}">
+          <image src='../../images/rooms.png'></image>
+          <view class='menuTle Nsize'>教室管理</view>
+        </view>
+        <view class='menuItem' bindtap='sign' wx:if="{{item==95}}">
+          <image src='../../images/signs.png'></image>
+          <view class='menuTle Nsize'>学生签到</view>
+        </view>
+      </block>
+      <view class='menuItem' bindtap='homework'>
+          <image src='../../images/signs.png'></image>
+          <view class='menuTle Nsize'>课评作业</view>
+      </view>
+      
+    </view>
+  </view>
+  <block wx:for="{{myRule}}">
+    <view class='box' wx:if="{{item==99}}">
+      <view class='title Nsize' style='margin-bottom:20rpx'>
+        <view class='line'></view>
+        <text>财务统计</text>
+        <view class='date'>
+          <picker mode="date" value="{{date}}" fields="month" bindchange="bindDateChange">
+            <view class="picker">
+              <text class='Ssize'>{{date}}</text>
+              <image src='../../images/select2.png'></image>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='tongji'>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/addTotal.png'></image>
+            <text class='Nsize'>新增总额</text>
+          </view>
+          <view class='Nsize'>￥{{moneySum.new_sign}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/totalsum.png'></image>
+            <text class='Nsize'>续费总额</text>
+          </view>
+          <view class='Nsize'>￥{{moneySum.renew_sign}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/tuifei.png'></image>
+            <text class='Nsize'>退费总额</text>
+          </view>
+          <view class='Nsize'>￥{{moneySum.refund_sum}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/shoukuan.png'></image>
+            <text class='Nsize'>收款总额</text>
+          </view>
+          <view class='Nsize'>￥{{moneySum.receipt_sum}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:for="{{myRule}}">
+    <view class='box' wx:if="{{item==99}}">
+      <view class='title Nsize' style='margin-bottom:20rpx'>
+        <view class='line'></view>
+        <text>课时统计</text>
+        <view class='date'>
+          <picker mode="date" value="{{date2}}" fields="month" bindchange="bindDateChange2">
+            <view class="picker">
+              <text class='Ssize'>{{date2}}</text>
+              <image src='../../images/select2.png'></image>
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='tongji' bindtap="keshiTongji">
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/assume.png'></image>
+            <text class='Nsize'>应消老师课时</text>
+          </view>
+          <view class='Nsize'>{{keshiSum.teacher_class_total_count}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/assume.png'></image>
+            <text class='Nsize'>实消老师课时</text>
+          </view>
+          <view class='Nsize'>{{keshiSum.teacher_class_count}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/assume.png'></image>
+            <text class='Nsize'>应消学员课时</text>
+          </view>
+          <view class='Nsize'>{{keshiSum.student_class_total_count}}</view>
+        </view>
+        <view class='tongjiItem cell-space'>
+          <view class='lt'>
+            <image src='../../images/assume.png'></image>
+            <text class='Nsize'>实消学员课时</text>
+          </view>
+          <view class='Nsize'>{{keshiSum.student_class_count}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "学员列表",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

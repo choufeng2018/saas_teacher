@@ -1,0 +1,34 @@
+<view class='skiptop'>
+    <view class="condition">
+        <view class="restrict">
+            {{currenttextNumber}}/{{maxtext}}
+        </view>
+        <textarea maxlength="1000" placeholder="请输入作业要求" bindinput="requireText"></textarea>
+    </view>
+
+</view>
+
+<view class="audioBox">
+    <view class='top_acts'>
+        <view class='start_act'>{{sec}}</view>
+        <view class="line"></view>
+        <view class='end_act'>02:00</view>
+        <image src="../../images/delaterecord.png" class="delateRecord" bindtap='delateRecord'></image>
+    </view>
+
+    <image wx:if="{{playStart==false && endPlay==false && playing==false}}" src="../../images/start.png" class="initPlay" bindtap='playRec'></image>
+
+    <image wx:if="{{playStart==true && endPlay==false}}" src="../../images/playing.png" class="initPlay" bindtap='endPlay'></image>
+
+    <image wx:if="{{endPlay==true&& playing==false}}" src="../../images/play.png" class="initPlay" bindtap='playVoice'></image>
+
+    <image wx:if="{{playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='endPlays'></image>
+    <!-- <view class="free-MusicProgress">
+ <view style="width:{{progress}}%;"></view>
+</view> -->
+    <view class='moveline' style="width:{{width}}rpx"></view>
+</view>
+
+<view class="btnsend">
+    <button loading="{{isload}}" disabled='{{isload}}' class="buttons" bindtap='send'>批阅作业</button>
+</view>

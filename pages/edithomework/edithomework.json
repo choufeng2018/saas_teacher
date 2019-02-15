@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑作业",
+  "usingComponents": {
+    "wxzx-slider": "../../component/wxzx-slider/wxzx-slider"
+  }
+}

@@ -1,0 +1,239 @@
+/* pages/my/my.wxss */
+.my{
+  overflow: hidden;
+  width:750rpx;
+}
+.topInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400rpx;
+  padding: 0 36rpx;
+  /* justify-content: center; */
+}
+.topInfo image{
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 72rpx;
+  border: 12rpx solid #FF8F44;
+}
+
+.info_detail{
+  /* height: 128rpx; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center
+}
+.info_detail .Nsize{
+  font-size: 32rpx;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+.info_detail .Ssize{
+  font-size: 28rpx;
+  color: #fff;
+}
+
+
+.topBg{
+  height: 400rpx;
+  position: relative
+}
+.bgTop{
+  height: 400rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+.circle{
+  width: 750rpx;
+  /* background: #f76605; */
+  height: 225rpx;
+  position: absolute;
+  border-radius: 400rpx;
+  left: 0rpx;
+  top: 0rpx;
+  clear: both;
+  text-align: center;
+}
+
+.name{
+  position: absolute;
+  top: 0rpx;
+  color: #fff;
+  font-size: 32rpx;
+  width:100%;
+  z-index: 3;
+}
+
+.circle .avatar{
+ height: 140rpx;
+    width: 140rpx;
+    border-radius: 70rpx;
+    position: absolute;
+    bottom: -70rpx;
+    left: 305rpx;
+    z-index: 2;
+}
+
+.cir{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 225rpx;
+  z-index: 1;
+}
+
+
+.top{
+  height:400rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  overflow: hidden
+}
+
+
+
+
+
+.top .phone{
+  position: absolute;
+  top: 295rpx;
+  width: 750rpx;
+  height: 105rpx;
+  line-height: 105rpx;
+  text-align: center;
+font-size: 32rpx;
+color: #f76605;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .banner{
+    height:400rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #af433b
+}
+
+.avatar image{
+    height: 140rpx;
+    width: 140rpx;
+    border-radius: 70rpx;
+    vertical-align: bottom;
+    margin-bottom: 40rpx;
+}
+.avatar .username{
+    color: #fff;
+    font-size:28rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+} */
+
+.itemBox{
+  /* padding: 0 20rpx; */
+}
+
+.item{
+    height: 104rpx;
+    /* line-height: 100rpx; */
+    background: #fff;
+    padding: 0 32rpx;
+   border-bottom: 1rpx solid #ebebeb;
+}
+
+.version{
+  border-bottom: 0rpx solid #fff;
+}
+
+
+
+.item image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align:middle;
+}
+
+.engency{
+    padding: 20rpx;
+    overflow: hidden;
+}
+.engency image{
+    float: left;
+    height: 100rpx;
+    width: 100rpx;
+    margin-right: 20rpx;
+}
+.rightDesc{
+    float: left;
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.rights{
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    padding: 20rpx;
+}
+.tle{
+    
+    width: 130rpx;
+    text-align: center;
+    margin-right: 10rpx;
+}
+
+.rightsList{
+    width: calc(100% - 140rpx);
+    overflow: hidden;
+}
+.rightsItem{
+    height: 40rpx;
+    border: 1rpx solid #af433b;
+    border-radius: 20rpx;
+    line-height:40rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    float: left;
+    font-size: 24rpx;
+    color: #af433b;
+    padding: 0 10rpx;
+}
+
+.item text{
+  margin-left: 20rpx;
+}
+
+.loginout{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size:32rpx;
+  color: #FF362A;
+  background: #fff;
+  /* border-radius: 16rpx; */
+  width: 100%;
+  margin: 20px auto;
+}

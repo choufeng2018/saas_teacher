@@ -1,0 +1,139 @@
+/* pages/editCourseOrder/editCourseOrder.wxss */
+.item{
+  height: 104rpx;
+  line-height: 104rpx;
+  padding: 0 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    direction: rtl;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    direction: rtl;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ but I'm not sure about working */
+    direction: rtl;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    direction: rtl;
+}
+
+.addrholder{
+  margin-left: 300rpx;
+}
+
+.holder{
+  text-align: right;
+  float: right;
+  
+}
+.item_addr{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.adr_l{
+  height: 104rpx;
+  line-height: 104rpx;
+}
+.item input{
+  text-align: right;
+  font-size: 28rpx;
+  color:#5a5a5a;
+}
+
+.item textarea{
+ width: 100%;
+  height: auto;
+  line-height: 40rpx;
+  padding: 20rpx 0;
+}
+.item.head{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 20rpx;
+}
+
+.headLeft{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.headLeft image{
+  vertical-align: bottom;
+  margin-right: 20rpx;
+}
+
+
+.item .stuMore{
+  vertical-align: bottom;
+  height: 40rpx;
+  width: 40rpx;
+  border-radius: 30rpx;
+  
+}
+
+.read{
+  margin-bottom: 8rpx;
+}
+
+.logo{
+  width:100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.inpu_tip{
+  margin-left: 10rpx;
+  color: #a5a5a5;
+}
+
+
+
+.username input{
+  text-align: left;
+}
+
+
+.item input{
+  text-align: right;
+  font-size: 28rpx;
+  color:#5a5a5a;
+  width: 500rpx;
+}
+.remark{
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 88rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+
+
+.restrict{
+    position: absolute;
+    right: 20rpx;
+    /* height: 92rpx;
+    line-height: 92rpx; */
+    bottom:20rpx;
+    z-index: 999;
+    font-size: 24rpx;
+    color: #a5a5a5
+}
+/* .remark view{
+  height: 50rpx;
+  line-height: 50rpx;
+} */
+
+.remark textarea{
+  width: 100%;
+  height: 100rpx;
+  /* background: #e6e6e6; */
+  box-sizing: border-box;
+  padding: 10rpx;
+  line-height: 30rpx;
+}
+

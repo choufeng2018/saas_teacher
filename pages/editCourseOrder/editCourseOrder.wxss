@@ -1,0 +1,126 @@
+/* pages/editCourseOrder/editCourseOrder.wxss */
+.btned{
+  border-radius:10rpx;
+height:88rpx;
+width:710rpx;
+background:#f76605!important;
+color:#fff!important;
+font-size:28rpx;
+text-align:center;
+line-height:88rpx;
+margin: 0 auto;
+margin-bottom: 20rpx;
+
+}
+.orderType{
+  /* padding: 0 20rpx; */
+  background: #fff;
+  height: 104rpx;
+  line-height: 104rpx;
+  margin-bottom: 8rpx;
+  border-bottom: 1rpx solid #ebebeb;
+  padding: 0 32rpx;
+}
+
+.enterMore image{
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align:middle;
+  margin-right: -10rpx;
+}
+.item{
+  height: 104rpx;
+  line-height: 104rpx;
+  padding: 0 32rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+
+.read{
+  margin-bottom: 8rpx;
+}
+
+.edit .item{
+ 
+}
+.item input{
+  text-align: right;
+  font-size: 28rpx;
+  color:#5a5a5a;
+  width:280rpx
+}
+.remark{
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 88rpx;
+}
+.remark view{
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.remark textarea{
+  width: 100%;
+  height: 160rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+
+.box{
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-start;
+  margin-top:8rpx;
+  flex-wrap:wrap;
+  background:#fff;
+  margin-bottom:8rpx;
+  padding:20rpx;
+  padding-bottom:0;
+}
+.boxItem{
+    margin-right: 20rpx;
+    margin-bottom: 8rpx;
+    text-align: center;
+    width: 100rpx;
+}
+
+.avatar{
+    position: relative;
+}
+
+
+.avatar .image{
+    height: 64rpx;
+    width: 64rpx;
+    border-radius: 32rpx;
+    vertical-align: bottom;
+}
+.reduce{
+    height: 34rpx;
+    width: 34rpx;
+    position: absolute;
+    right: -7rpx;
+    top: -0;
+
+}
+
+.boxItem .Ssize{
+  color: #5a5a5a;
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.stu image{
+  width: 48rpx;
+  height: 48rpx
+}
+
+.stu{
+  margin: 8rpx 0;
+  background: #fff;
+  padding: 0 20rpx
+}
+

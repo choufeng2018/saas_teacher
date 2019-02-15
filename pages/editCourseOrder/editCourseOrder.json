@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "修改课程订单",
+  "usingComponents": {
+    "zan-toptips": "../../dist/toptips/index"
+  }
+}

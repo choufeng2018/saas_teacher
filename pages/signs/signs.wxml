@@ -1,0 +1,82 @@
+<!--viewages/music/music.wxml-->
+
+
+    <scroll-view scroll-y="true" style='height:100vh' bindscrolltolower="toBottom" lower-threshold="10">
+      <view class='topDate'>
+        <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+            <text>{{date}}   {{weekName}}</text>
+            <image src='../../images/calendar.png'></image>
+          </view>
+        </picker>
+      </view>
+
+      <view wx:if="{{signList.length!=0}}">
+
+        <view class='signList'>
+          <view class='listItem' bindtap='todetail' data-detail="{{item}}" wx:for="{{signList}}" data-id="{{item.id}}" wx:key="{{item.id}}">
+            <view class='itemLeft'>
+              <view class='course'>
+                <image src='../../images/banjis.png'></image>
+                <text class="Nsize">{{item.banji_name}}</text>
+
+              </view>
+              <view class='course'>
+                <image src='../../images/time.png'></image>
+                <text class="Usize" style='margin-right:20rpx'>{{item.week}} {{item.begin_time}}-{{item.end_time}}</text>
+
+
+              </view>
+              <view class='course'>
+                <image src='../../images/lesson.png'></image>
+                <text class='Usize' style='margin-right30rpx;'>{{item.lesson}}</text>
+                <text class="Usize">{{item.dec_num}}课时</text>
+
+              </view>
+              <view class='course'>
+                <image src='../../images/teacher.png'></image>
+                <text class='Usize'>{{item.teacher_name}}</text>
+              </view>
+              <view class='course'>
+                <image src='../../images/roomicon.png'></image>
+                <text class='Usize'>{{item.class_room}}</text>
+              </view>
+            </view>
+            <view class='itemRight'>
+              <view class="top">
+                <canvas class="cir" style="width:66px; height:66px;" canvas-id="canvasArc{{index}}">
+                </canvas>
+
+                <view class="cc">
+                <view style='margin-bottom:12rpx'>{{item.sign_count}}/{{item.student_count}}</view>
+                <view>签到</view>
+                
+                </view>
+
+
+              </view>
+
+            </view>
+          </view>
+
+        </view>
+        <!-- 无更多数据提醒 -->
+        <view style='margin:20rpx 0'>
+          <block wx:if="{{signList.length < has_more}}">
+          <zan-loadmore type="loading"></zan-loadmore>
+        </block>
+          <block wx:if="{{(signList.length==has_more) || (list.length==0)}}">
+            <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+          </block>
+        </view>
+      </view>
+
+      <view class='NoDatas' wx:if="{{signList.length==0}}">
+        <image src='../../images/nosigns.png'></image>
+      </view>
+    </scroll-view>
+
+
+
+
+

@@ -1,0 +1,17 @@
+<!--pages/welogin/welogin.wxml-->
+<view class='we-login'>
+  <view class='login-top'>
+    <image src='../../images/logo.png'></image>
+    <view class='min-name'>乐鸟音乐</view>
+  </view>
+  <view class='login-bt'>
+    <view class='login-desc'>
+      <view>网页由乐鸟音乐开发,请确认授权信息</view>
+      <view>
+        <text style='font-size:34rpx;font-weight:bold;margin-right:20rpx'>·</text>获得你的公开信息(昵称、头像等)</view>
+    </view>
+  </view>
+  <view class='login-btn'>
+    <button type='primary' open-type="getUserInfo" bindgetuserinfo="userInfoHandler">确认登录</button>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "购买记录",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

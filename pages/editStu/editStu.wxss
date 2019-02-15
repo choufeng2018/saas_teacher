@@ -1,0 +1,113 @@
+/* pages/editCourseOrder/editCourseOrder.wxss */
+.inpu_tip{
+  margin-left: 10rpx;
+  color: #a5a5a5;
+}
+.item{
+  height: 104rpx;
+  line-height: 104rpx;
+  padding: 0 20rpx;
+  background: #fff;
+}
+
+.read .item{
+  border-bottom:1rpx solid #ebebeb;
+
+}
+.item input{
+  text-align: right;
+  font-size: 28rpx;
+  color:#5a5a5a;
+}
+.item.head{
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 20rpx;
+}
+
+.headLeft{
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.headLeft image{
+  vertical-align: bottom;
+  margin-right: 20rpx;
+}
+
+
+.item .stuMore{
+  margin-bottom: 10rpx;
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 30rpx;
+}
+.read{
+  margin-bottom: 8rpx;
+}
+
+.logo{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.head_r{
+  height: 100rpx;
+}
+
+
+
+.username input{
+  text-align: left;
+}
+
+
+.item input{
+  text-align: right;
+  font-size: 28rpx;
+  color:#5a5a5a;
+  width: 480rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.remark{
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom: 88rpx;
+  position: relative;
+  padding-bottom: 20rpx;
+}
+.item textarea{
+ width: 100%;
+  height: 110rpx;
+  line-height: 40rpx;
+  padding: 20rpx 0;
+}
+
+.restrict{
+    position: absolute;
+    right: 20rpx;
+    /* height: 92rpx;
+    line-height: 92rpx; */
+    bottom:20rpx;
+    z-index: 999;
+    font-size: 24rpx;
+    color: #a5a5a5
+}
+/* .remark view{
+  height: 50rpx;
+  line-height: 50rpx;
+} */
+
+.remark textarea{
+  width: 100%;
+  height: 100rpx;
+  /* background: #e6e6e6; */
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+

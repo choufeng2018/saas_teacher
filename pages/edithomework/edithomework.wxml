@@ -1,0 +1,93 @@
+<!--pages/sendhomework/sendhomework.wxml-->
+
+<view class='top'>
+  <view class='lesson_name'>{{work.shedule_info.lesson_name}}</view>
+  <view class="topInfo">
+    <view class="infoItem" style='margin-right:20rpx'>{{work.shedule_info.class_room_name}}</view>
+    <view class="infoItem">{{work.shedule_info.date}} {{work.shedule_info.begin_time}}</view>
+  </view>
+  <view class="upLoad" wx:if="{{pics.length==0}}" bindtap='uploads'>上传曲谱</view>
+  <view class='box' wx:if="{{pics.length!=0}}" style='margin-top:40rpx;'>
+    <view class=' pic' bindtap='preview' wx:for="{{pics}}" wx:for-item="pic" data-pic="{{pics}}" data-cur="{{pic}}" wx:key="{{item.id}}">
+      <image src='{{pic}}' mode="scaleToFill"></image>
+      <image src='../../images/close2.png' class='close' data-index="{{index}}" catchtap='close'></image>
+    </view>
+
+    <view class='pic'>
+      <image class='imgItem' wx:if='{{pics.length!=10}}' src='../../images/addpic.png' bindtap='uploads'></image>
+    </view>
+  </view>
+</view>
+
+<view class="center_cont">
+  <view class="h_name">
+    <input type="text" placeholder="请输入作业名称" value='{{work.title}}' maxlength="{{maxname}}" bindinput="workName"></input>
+    <view class="restrict">
+      {{currentWordNumber}}/{{maxname}}
+    </view>
+  </view>
+  <view class="condition">
+    <view class="restrict">
+      {{currenttextNumber}}/{{maxtext}}
+    </view>
+    <textarea maxlength="1000" placeholder="请输入作业要求" bindinput="requireText" value='{{work.desc}}'></textarea>
+  </view>
+</view>
+
+
+<view class="audioBox">
+  <view class='top_acts'>
+    <view class='start_act'>{{pass_time}}</view>
+    <view class="line" wx:if="{{work.audio_time=='' || luyin==true}}"></view>
+    <view class='end_act' wx:if="{{work.audio_time!='' && luyin==false}}">{{work.audio_time}}</view>
+    <view class='end_act' wx:if="{{work.audio_time=='' || luyin==true}}">02:00</view>
+    <image src="../../images/delaterecord.png" class="delateRecord" bindtap='delateRecord'></image>
+  </view>
+
+  <view class='slider_bg' wx:if="{{work.audio_time!=''&& luyin==false}}">
+    <wxzx-slider id='wxzxSlider' blockSrc='../../images/slider.png' blockImageWidth='34' blockImageHeight='34' value='{{value}}' max='{{max}}' percent='{{percent}}' width='344' bind:sliderTap="sliderTap" bind:sliderStart="sliderStart" bind:sliderChange="sliderChange"
+      bind:sliderEnd="sliderEnd" bind:sliderCancel="sliderCancel" slider-left='15' disabled='{{disabled}}'></wxzx-slider>
+  </view>
+  <block wx:if="{{work.audio_time!=''}}">
+
+  <!-- <image wx:if="{{luyin==true && P_playStart==true}}" src="../../images/start.png" class="initPlay" bindtap='playRec'></image> -->
+
+    <image wx:if="{{playStart==false && endPlay==false && playing==false}}" src="../../images/rplay.png" class="initPlay" bindtap='playingAudio'></image>
+
+    <image wx:if="{{playStart==true && endPlay==false}}" src="../../images/stop.png" class="initPlay" bindtap='endBofang'></image>
+
+    <image wx:if="{{endPlay==true&& playing==false}}" src="../../images/rplay.png" class="initPlay" bindtap='playingAudio'></image>
+  </block>
+
+  <block wx:if="{{work.audio_time=='' || luyin==true}}">
+
+    <image wx:if="{{P_playStart==false && P_endPlay==false && P_playing==false}}" src="../../images/start.png" class="initPlay" bindtap='playRec'></image>
+
+    <image wx:if="{{P_playStart==true && P_endPlay==false}}" src="../../images/playing.png" class="initPlay" bindtap='endPlay'></image>
+
+    <image wx:if="{{P_endPlay==true&& P_playing==false}}" src="../../images/rplay.png" class="initPlay" bindtap='playVoice'></image>
+
+    <image wx:if="{{P_playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='endBofang'></image>
+
+    <!-- <image wx:if="{{endPlay==true&& playing==false}}" src="../../images/playing.png" class="initPlay" bindtap='playingAudio'></image> -->
+  </block>
+<view class='moveline' style="width:{{width}}rpx"></view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="btnsend">
+  <view class="buttons" bindtap='send'>保存作业</view>
+</view>

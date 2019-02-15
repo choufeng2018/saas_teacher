@@ -1,0 +1,39 @@
+/* pages/loginNew/loginNew.wxss */
+page{
+  background: #fff;
+}
+
+
+.newer{
+  padding: 0 32rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120rpx;
+  text-align:center;
+
+}
+.avatarTop{
+      font-size: 32rpx;
+      color: #bebebe;
+}
+.avatarTop image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 40rpx;
+}
+
+.input{
+  margin-top: 120rpx;
+}
+
+input{
+  border-bottom: 1rpx solid #F76605;
+  height: 104rpx;
+  line-height: 104rpx;
+  width: 670rpx;
+  color: #bebebe;
+  font-size: 32rpx;
+  text-align: left
+}

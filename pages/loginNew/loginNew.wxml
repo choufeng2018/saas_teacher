@@ -1,0 +1,13 @@
+<!--pages/loginNew/loginNew.wxml-->
+<view class='newer'>
+  <!-- <view class='avatarTop'>
+    <image src='{{avatar}}' bindtap='avatar'></image>
+    <view>上传个人头像</view>
+  </view> -->
+
+  <view class='input'>
+  <input type='text' bindinput='name' placeholder='请输入您的姓名' placeholder-style='color:#bebebe'></input>
+  </view>
+
+  <button bindtap='submit' style='background:#f76605;color:#fff;width:100%;margin:0;margin-top:120rpx;'>开始使用</button>
+</view>

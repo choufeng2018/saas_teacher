@@ -1,0 +1,163 @@
+<!--pages/recordDetail/recordDetail.wxml-->
+<zan-tab scroll="{{ scroll }}" list="{{ list }}" selected-id="{{ selectedId }}" height="{{ height }}" fixed="{{ fixed }}" bindtabchange="handleTabChange" style="text-align:center" />
+
+<swiper style='height:calc(100vh - 44px)' current='{{selectedId}}' bindchange="change">
+
+  <swiper-item style="overflow-y:scroll">
+    <view class='order'>
+      <view class='orderType cell-space Nsize'>
+        <text>订单类型:</text>
+        <text wx:if="{{order.contract_type==1 || order.contract_type==2}}">课程购买</text>
+        <text wx:if="{{order.contract_type==3}}">赠送</text>
+      </view>
+
+      <view class='orderType cell-space Nsize'>
+        <text>订单状态:</text>
+        <text wx:if="{{order.status!=2}}">正常</text>
+        <text wx:if="{{order.status==2}}">退费</text>
+      </view>
+
+      <view class='order-top'>
+
+        <view class='item cell-space Nsize'>
+          <text>所购买课程:</text>
+          <text>{{order.title}}</text>
+        </view>
+        <view class='item cell-space Nsize'>
+          <text>课时数:</text>
+          <text>{{order.buy_class_time}}</text>
+        </view>
+        <!-- <view class='item cell-space Nsize'>
+          <text>课时单价:</text>
+          <text>{{order.price}}</text>
+        </view> -->
+        <view class='item cell-space Nsize'>
+          <text>课程总价:</text>
+          <text>{{order.total}}</text>
+        </view>
+
+        <view class='item cell-space Nsize'>
+          <text>其他金额:</text>
+          <text>{{order.fee}}</text>
+        </view>
+
+        <view class='item cell-space Nsize'>
+          <text>已上课时:</text>
+          <text>{{order.already_lesson}}</text>
+        </view>
+      </view>
+      <view style='margin:8rpx 0;background:#fff;'>
+        <view class='item cell-space Nsize'>
+          <text>优惠折扣:</text>
+          <text>{{order.discount*100}}%</text>
+        </view>
+
+        <view class='item cell-space Nsize'>
+          <text>其他优惠:</text>
+          <text>{{order.free_money}}</text>
+        </view>
+
+        <view class='item cell-space Nsize'>
+          <text>已优惠:</text>
+          <text>-￥{{hasF}}</text>
+        </view>
+
+        <view class='item cell-space Nsize'>
+          <text>总金额:</text>
+          <text>￥{{order.money}}</text>
+        </view>
+      </view>
+      <view class="order-other cell-space" style='margin-bottom:8rpx'>
+        <text>签约日期</text>
+        <text>{{order.sign_time}}</text>
+      </view>
+      <view class="order-other cell-space" style='margin-bottom:8rpx'>
+        <text>操作人:{{order.creator_info.username}}</text>
+        <text>{{order.ctime}}</text>
+      </view>
+
+      <view class="order-other cell-space">
+        <text>学员:</text>
+        <text>{{order.student_info.username}}</text>
+      </view>
+
+
+      <view class="order-other remarks">
+        备注: {{order.remark}}
+      </view>
+    </view>
+
+  </swiper-item>
+
+  <!-- //操作记录 -->
+  <swiper-item>
+    <view class='actList'>
+      <block wx:for="{{actList}}">
+        <view class='listItem'>
+          <view class='item cell-space'>
+            <text>操作人:{{item.creator_info.username}}</text>
+            <text style='color:#a5a5a5'>{{item.ctime}}</text>
+          </view>
+
+          <view class='item cell-space' wx:for="{{item.log_list}}">
+            <text>修改{{item.remark}}</text>
+            <text>{{item.last_value}}修改为{{item.modify_value}}</text>
+          </view>
+
+        </view>
+      </block>
+
+    </view>
+
+    <view style='margin:20rpx 0'>
+      <!-- <zan-loadmore type="loading"></zan-loadmore> -->
+      <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+    </view>
+  </swiper-item>
+
+</swiper>
+<view class='Tfixed'>
+  <view bindtap='bolish'>作废</view>
+  <view bindtap='toEdit' data-hass_free="order." data-price="{{order.price}}" data-pid="{{order.pid}}" data-num="{{order.buy_class_time}}" data-id="{{order.id}}" data-title="{{order.title}}" data-lesson_count="{{order.lesson_count}}" data-money="{{order.money}}" data-stuinfo="{{order.student_info}}"
+    data-discount="{{order.discount}}" data-free_money="{{order.free_money}}" data-total="{{order.total}}" data-fee="{{order.fee}}" data-already_lesson="{{order.already_lesson}}" data-remark="{{order.remark}}" data-status="{{order.status}}" data-utime="{{order.sign_time}}" data-type="{{order.contract_type}}">修改</view>
+    <view bindtap='reback'>退费</view>
+</view>
+
+<view class='alertBox' wx:if="{{showAlert}}">
+  <view class='alert'>
+    
+      <view class='alertTle Nsize cell-space'>
+        <text>退课时</text>
+        <text>最多可退{{order.buy_class_time}}课时</text>
+      </view>
+
+      <view class='inpuBox'>
+        <input type='text' placeholder='0' bindinput='backHour'></input>
+      </view>
+
+      <view class='alertTle Nsize cell-space'>
+        <text>退费金额</text>
+        <text>最多可退{{order.money}}</text>
+      </view>
+      <view class='inpuBox'>
+        <input type='text' bindinput='backMoney' placeholder='0'></input>
+      </view>
+
+      <view class='alertTle Nsize'>备注</view>
+      <view class='inpuBox'>
+        <textarea bindinput='remark'></textarea>
+      </view>
+      
+   
+    
+
+    <view class='btnBox'>
+      <view bindtap='cancel'>取消</view>
+      <view bindtap='sure'>确认</view>
+    </view>
+  </view>
+</view>
+
+
+
+

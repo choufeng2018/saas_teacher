@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "创建学员",
+  "usingComponents": {
+    "zan-toptips": "../../dist/toptips/index"
+  }
+}

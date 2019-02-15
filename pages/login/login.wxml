@@ -1,0 +1,40 @@
+<!-- 
+    <view class="login">
+    <form>
+      <view class="phone">
+      <text>手机号</text>
+      <input type="number" placeholder="请输入手机号" bindinput="inpu_num"/>
+      </view>
+      <view class="checkcode">
+        <text>验证码</text>
+      <input type="number" placeholder="请输入验证码" bindinput="inpu_code"/>
+      <button plain="{{plain}}" bindtap="getcode" disabled="{{ disabled }}"> {{check_code }} </button>
+      </view>
+      <view class="login_button">
+        <button bindtap="login">绑定手机号</button>
+      </view>
+      </form>                           
+    </view> -->
+
+<view class="login">
+  <view class="lTop">
+    <image src="../../images/logo.png"></image>
+    <view>乐鸟老师助手</view>
+  </view>
+  <view class="Lcenter">
+    <view class="boxItem">
+      <image src="../../images/mobile.png"></image>
+      <input type="number" placeholder="请输入手机号" class="phone" bindinput="inpu_num"></input>
+    </view>
+    <view class="boxItem flex-row">
+      <view class='getscode'>
+      <image src="../../images/codes.png" alt=""></image>
+      <input type="text" cursor-spacing="150px" placeholder="请输入验证码" class="mobilecode" bindinput="inpu_code"></input>
+      </view>
+      
+      <button plain="{{plain}}" bindtap="getcode" disabled="{{ disabled }}" class="getCode button">{{check_code }}</button>
+    </view>
+  </view>
+
+  <button class="btn" bindtap="login">登录</button>
+</view>

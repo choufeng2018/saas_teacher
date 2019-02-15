@@ -1,0 +1,18 @@
+<!--pages/courseComment/courseComment.wxml-->
+<view class='comment'>
+  <textarea placeholder='请输入课评' placeholder-class='holder' bindinput='commentTxt'></textarea>
+  <view class='Picbox'>
+  <block wx:for="{{pics}}" wx:key="1">
+  <view class='img'>
+    <image class='imgItem' src='{{item}}'></image>
+    <image src='../../images/close2.png' class='close' data-index="{{index}}" bindtap='close'></image>
+    </view>
+  </block>
+  <view class='img'>
+  <image class='imgItem' wx:hidden='{{picboxs.length==9}}' src='../../images/uploadicon.png' bindtap='uploads'></image>
+  </view>
+  </view>
+</view>
+<view class='bt-fixed' bindtap='sends'>
+发表
+</view>

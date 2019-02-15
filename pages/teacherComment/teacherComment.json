@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "陪课老师点评",
+  "usingComponents": {
+    "wxzx-slider": "../../component/wxzx-slider/wxzx-slider"
+}
+}

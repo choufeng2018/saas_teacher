@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "课程订单",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

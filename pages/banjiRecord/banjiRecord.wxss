@@ -1,0 +1,89 @@
+/* pages/banjiRecord/banjiRecord.wxss */
+
+.NoDatas{
+  height: calc(100vh);
+  width:100%;
+background:#f4f4f4;
+display:flex;
+flex-direction:column;
+/* justify-content:center; */
+align-items:center;
+}
+.NoDatas image{
+  width: 360rpx;
+  height: 328rpx;
+  margin-top: 160rpx;
+}
+.end_act{
+    position: absolute;right: 20rpx;
+}
+.slider_bg {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  top: 4rpx;
+  left: 2rpx;
+  position: absolute;
+}
+.audioBox {
+  height: 256rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  /* margin-bottom: 40rpx;
+  border-bottom: 1rpx solid #ebebeb; */
+  /* position: relative; */
+  padding: 40rpx;
+  box-sizing: border-box;
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+}
+.recordItem{
+    height: 128rpx;
+    line-height: 128rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    padding: 0 40rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+
+.end_act::before{
+  content:'';
+  position: absolute;
+  height: 34rpx;
+  top:0;
+  right: -30rpx;
+  z-index: 9999;
+  width: 0rpx;
+  background: #fff;
+}
+
+
+.recordLeft text:nth-of-type(1){
+    font-size: 28rpx;
+    color: #333;
+    margin-right: 40rpx;
+}
+
+.recordLeft text:nth-of-type(2){
+    font-size: 28rpx;
+    color: #a5a5a5;
+}
+
+.recordItem image{
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.recordlist{
+  padding-bottom: 296rpx;
+}
+.line{
+  width: 560rpx;
+}

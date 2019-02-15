@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学员等级",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

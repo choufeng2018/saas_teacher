@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "作业详情",
+  "usingComponents": {
+    "wxzx-slider": "../../component/wxzx-slider/wxzx-slider"
+   }
+}

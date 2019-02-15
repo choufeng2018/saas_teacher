@@ -1,0 +1,109 @@
+<!--pages/stu/stu.wxml-->
+
+  <view class='search'>
+    <input class='Nsize' type='text' bindconfirm="searchName" bindinput='inpuName' value='{{name}}' placeholder='请输入学员姓名' placeholder-class='holder' placeholder-style='text-indent:50rpx;'></input>
+    <view class='stuTop'>
+      <!-- <image src='../../images/shai.png' bindtap="setModalStatus" data-status="1"></image> -->
+      <image src='../../images/addStu.png' bindtap='addStu'></image>
+    </view>
+  </view>
+  <view wx:if="{{vlist.length!=0}}">
+  <view class='stu'>
+    <!-- <view class='tongji Ssize'>
+      学员共{{otherExt.all_count}}人 试听{{otherExt.listen_count}}人 过期{{otherExt.expire_count}}人 停课{{otherExt.stop_count}}人
+    </view> -->
+    <view class='box'>
+      <view class='listItem' wx:for="{{vlist}}" data-id="{{item.student_id}}" data-thd="{{item.third_id}}" bindtap='toDetail'>
+        <view class='avatar'>
+          <image wx:if="{{item.avatar!=''}}" mode='scaleToFill' src='{{item.avatar}}'></image>
+          <image wx:if="{{item.avatar==''}}" mode='scaleToFill' src='../../images/avatar.png'></image>
+          <!-- <view class='sattus status{{item.learn_status}}'>{{item.learn_status_text}}</view> -->
+        </view>
+
+        <view class='itemDesc'>
+          <view class='Nsize'>{{item.username}}</view>
+          <!-- <view class='Nsize'>{{item.mobile}}</view> -->
+          <!-- <view class='Ssize'>总剩余课时 {{item.rest_lesson}}</view> -->
+        </view>
+
+        <image src='../../images/rights.png' class='rightICOn'></image>
+
+      </view>
+    </view>
+    <view style='margin:20rpx 0;'>
+      <block wx:if="{{vlist.length>20&&vlist.length%20==0&&list!=0}}">
+        <zan-loadmore type="loading"></zan-loadmore>
+      </block>
+      <block wx:if="{{vlist.length<20||list.length==0 || (vlist.length>20&&list.length<20)}}">
+        <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+      </block>
+    </view>
+
+  </view>
+
+  <!-- <view class='hoverBtn' bindtap='addStu'>新增</view> -->
+</view>
+<!-- <view class='models' wx:if="{{!hasrule}}">
+  暂无相关权限
+</view> -->
+
+<!-- <view class='NoDatad' wx:if="{{list.length==0}}">
+  <image src='../../images/nostu.png'></image>
+  <view class='no_Add' bindtap='addStu'>添加学员</view>
+</view> -->
+<view class='NoData' wx:if="{{vlist.length==0}}">
+  <image src='../../images/nostu.png'></image>
+  <!-- <view class='no_Add' bindtap='back'>返回</view> -->
+</view>
+
+
+
+<view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+  <!-- <view class="close_icon" bindtap="setModalStatus" data-status="0">×</view> -->
+  <view class="drawer_attr_content">
+    <view class='shaicont'>
+      <view class='shaiItem'>
+        <view class='shaiTle'>绑定微信</view>
+        <view class='selectBox'>
+          <view class="{{w_cur==1?'selectItemEd':'selectItem'}}" data-w_index="1" bindtap='wechat'>是</view>
+          <view class="{{w_cur==2?'selectItemEd':'selectItem'}}" data-w_index="2" bindtap='wechat'>否</view>
+        </view>
+      </view>
+      <view class='shaiItem'>
+        <view class='shaiTle'>绑定手机号</view>
+        <view class='selectBox'>
+          <view class="{{mobile_cur==1?'selectItemEd':'selectItem'}}" data-m_index="1" bindtap='isMobile'>是</view>
+          <view class="{{mobile_cur==2?'selectItemEd':'selectItem'}}" data-m_index="2" bindtap='isMobile'>否</view>
+        </view>
+      </view>
+      <view class='shaiItem'>
+        <view class='shaiTle'>学员类型</view>
+        <view class='selectBox'>
+          <view class="{{stuType_cur==1?'selectItemEd':'selectItem'}}" data-learn_status="1" style='margin-bottom:32rpx' bindtap='stuType'>在读</view>
+          <view class="{{stuType_cur==2?'selectItemEd':'selectItem'}}" data-learn_status="2" style='margin-bottom:32rpx' bindtap='stuType'>试听</view>
+          <view class="{{stuType_cur==3?'selectItemEd':'selectItem'}}" data-learn_status="3" bindtap='stuType'>过期</view>
+          <view class="{{stuType_cur==4?'selectItemEd':'selectItem'}}" data-learn_status="4" bindtap='stuType'>停课</view>
+        </view>
+      </view>
+      <view class='shaiItem'>
+        <view class='shaiTle'>课时数</view>
+        <view class='selectBox keshi'>
+          <text>课时数小于</text>
+          <input type='number' bindinput='keshiNum' value='{{keshiNum}}'></input>
+        </view>
+      </view>
+      <view class='shaiItem'>
+        <view class='shaiTle'>课程筛选</view>
+        <view class='selectBox muti'>
+            <view wx:for="{{lessonList}}" class="{{lesson_cur==item.id?'selectItemEd':'selectItem'}}" data-id="{{item.id}}" bindtap='slectCourses'>{{item.name}}</view>
+
+        </view>
+      </view>
+    </view>
+    <view class='bt_box'>
+      <view class='bt_boxItem' bindtap='reset'>重置</view>
+      <view class='bt_boxItem' bindtap='submits'>完成</view>
+    </view>
+  </view>
+</view>

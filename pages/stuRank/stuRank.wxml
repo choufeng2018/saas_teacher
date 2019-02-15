@@ -1,0 +1,12 @@
+<!--pages/stuRank/stuRank.wxml-->
+<view class='item cell-space Nsize' wx:for="{{list}}" data-id="{{item.id}}" data-name="{{item.levelname}}" bindtap='toBack' >
+<text>{{item.levelname}}</text>
+<text>折扣: {{item.discount*100}}%</text>
+</view>
+
+<view style='margin:20rpx 0'>
+<!-- <zan-loadmore type="loading"></zan-loadmore> -->
+<zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+</view>
+<view class='bt-fixed' bindtap='addStuRank'>增加</view>
+

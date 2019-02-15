@@ -1,0 +1,191 @@
+<!--pages/stuDetail/stuDetail.wxml-->
+<view class='detail'>
+  <view class='circle'>
+    <image src='../../images/moresss.png' class='editicon' bindtap='acts'></image>
+    <view class='menu' wx:if="{{menuShow==true}}">
+      <view class='menuItem' bindtap='toEdit' data-detail="{{detail}}">编辑学员</view>
+      <view class='menuItem' bindtap='delateStu' data-sid="{{detail.id}}">删除学员</view>
+    </view>
+
+    <view class='cir_avatar'>
+      <image wx:if="{{detail.avatar!=''}}" class='avatar' src='{{detail.avatar}}' mode='scaleToFill'></image>
+      <image src='../../images/male.png' class='sex' wx:if="{{detail.gender==2}}"></image>
+      <image src='../../images/famale.png' class='sex' wx:if="{{detail.gender==1}}"></image>
+    </view>
+    <view class='right_tops'>
+      <view class='name'>{{detail.username}}</view>
+      <view class='birth' wx:if="{{detail.birthday!=''}}">
+        <image src='../../images/birth.png' class='birthicon'></image>
+        <text>{{detail.birthday}} ({{age==false?'0':age}}岁)</text> </view>
+      <!-- <view class='statusList'>
+        <view class='statuItem'>{{detail.learn_status_text}}学员</view>
+        <view class='statuItem'>{{detail.creator}}添加</view>
+        <view class='statuItem' wx:if="{{detail.sno}}">{{detail.sno}}</view>
+      </view> -->
+    </view>
+  </view>
+
+
+
+  <!-- 记录记录记录记录记录记录 -->
+  <view class='record'>
+    <!-- <zan-tab scroll="{{ scroll }}" list="{{ list }}" selected-id="{{ selectedId }}" height="{{ height }}" fixed="{{ fixed }}" bindtabchange="tabchange" style="text-align:center" /> -->
+
+    <view class='sendBtn'>
+      <image src='../../images/adds.png' data-sid="{{stuId}}" bindtap='addWork'></image>
+      <text data-sid="{{stuId}}" bindtap='addWork'>布置作业</text>
+    </view>
+
+
+    <scroll-view scroll-y="true" style='height:calc(100vh - 300rpx)' bindscrolltolower="toBottom">
+      <view>
+        <!-- wx:if="{{orderList.length!=0}}" -->
+        <view class='workList' wx:if="{{vlist.length!=0}}">
+          <view class='listItem' bindtap='todetail' data-detail="{{item}}" wx:for="{{vlist}}" data-id="{{item.practice_id}}" wx:key="{{item.id}}">
+            <view class='execise_status' wx:if="{{item.status==1}}">已练习</view>
+            <!-- <view class='desc' wx:if="{{item.status==1}}">
+                                <text>{{item.title}}</text>
+                                </view> -->
+
+            <!-- <view class="topInfo" wx:if="{{item.status==1}}">
+                  <view class="infoItem" style='margin-right:20rpx'> {{item.teacher_info.username}}</view>
+                  <view class="infoItem" style='margin-right:20rpx'>{{item.shedule.lesson_name}} {{item.shedule.begin_time}} - {{item.shedule.end_time}}</view>
+                </view> -->
+
+            <view class="topInfo">{{item.ctime}}</view>
+
+
+
+            <view class='desc' style="margin-top:0">
+              <!-- <image src="../../images/voice.png" wx:if="{{item.audio!=''}}"></image> -->
+              <text>{{item.title}}</text>
+            </view>
+
+            <view class='box'>
+              <view class=' pic' wx:for="{{item.pics}}" wx:for-item="pic" data-pic="{{item.pics}}" data-cur="{{pic}}" wx:key="{{item.id}}">
+                <image src='{{pic}}' mode="scaleToFill"></image>
+              </view>
+            </view>
+
+          </view>
+
+        </view>
+
+        <!-- 无更多数据提醒 -->
+        <view style='margin:20rpx 0' wx:if="{{workList.length!=0}}">
+
+          <block wx:if="{{has_more==true}}">
+            <zan-loadmore type="loading"></zan-loadmore>
+          </block>
+          <block wx:if="{{has_more==false}}">
+            <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+          </block>
+        </view>
+      </view>
+      <view class='nodatas' wx:if="{{workList.length==0}}">
+        <image src='../../images/nowork.png'></image>
+      </view>
+
+    </scroll-view>
+
+
+
+    <!-- <swiper style='height:calc(100vh - 300rpx)' current='{{selectedId}}' bindchange="change">
+      <swiper-item style="overflow-y:scroll">
+        <scroll-view scroll-y="true" style='height:calc(100vh - 300rpx)' bindscrolltolower="toBottom">
+          <view>
+           
+            <view class='workList' wx:if="{{vlist.length!=0}}">
+              <view class='listItem' bindtap='todetail' data-detail="{{item}}" wx:for="{{vlist}}" data-id="{{item.practice_id}}" wx:key="{{item.id}}">
+                <view class='execise_status' wx:if="{{item.status==1}}">已练习</view>
+         
+
+                <view class="topInfo" wx:if="{{item.status==1}}">
+                  <view class="infoItem" style='margin-right:20rpx'> {{item.teacher_info.username}}</view>
+                  <view class="infoItem" style='margin-right:20rpx'>{{item.shedule.lesson_name}} {{item.shedule.begin_time}} - {{item.shedule.end_time}}</view>
+                </view>
+
+                <view class='desc' style="margin-top:0">
+                 
+                  <text>{{item.title}}</text>
+                </view>
+
+                <view class='box'>
+                  <view class=' pic' wx:for="{{item.pics}}" wx:for-item="pic" data-pic="{{item.pics}}" data-cur="{{pic}}" wx:key="{{item.id}}">
+                    <image src='{{pic}}' mode="scaleToFill"></image>
+                  </view>
+                </view>
+
+              </view>
+
+            </view>
+
+           
+            <view style='margin:20rpx 0' wx:if="{{workList.length!=0}}">
+
+              <block wx:if="{{has_more==true}}">
+                <zan-loadmore type="loading"></zan-loadmore>
+              </block>
+              <block wx:if="{{has_more==false}}">
+                <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+              </block>
+            </view>
+          </view>
+          <view class='nodatas' wx:if="{{workList.length==0}}">
+            <image src='../../images/nowork.png'></image>
+          </view>
+
+        </scroll-view>
+
+
+      </swiper-item>
+      <swiper-item style="overflow-y:scroll">
+        <scroll-view scroll-y="true" style='height:calc(100vh - 300rpx)' bindscrolltolower="commenttoBottom" lower-threshold="10">
+          <view wx:if="{{commentList.length!=0}}">
+            <view class='comment'>
+              <view class='cList' wx:for='{{commentList}}'>
+                <view class='cTle Nsize'>{{item.lesson}}</view>
+                <view class='box'>
+                  <view class=' pic' catchtap='preview' data-pic="{{item.pics}}" data-cur="{{pic}}" wx:for="{{item.pics}}" wx:for-item="pic">
+                    <image src='{{pic}}'></image>
+                  </view>
+
+                  <view class='video pic' wx:for="{{item.video}}">
+                    <image src='{{item.poster}}'></image>
+                    <image src='../../images/videos.png' class='play'></image>
+                  </view>
+
+                </view>
+
+                <view class='desc Nsize'>
+                  {{item.content}}
+                </view>
+
+                <view class='desc_detail cell-space'>
+                  <text class='Ssize'>{{item.creator_text}}</text>
+                  <text class='Ssize'>{{item.createtime}}</text>
+                </view>
+              </view>
+            </view>
+            <view style='margin:20rpx 0'>
+              <zan-loadmore type="loading" wx:if="{{(commentList.length < commentTotal) }}"></zan-loadmore>
+              <zan-loadmore wx:if="{{(commentList.length == commentTotal) || (commentTotal<=10)}}" type="text" text="暂无更多数据"></zan-loadmore>
+            </view>
+          </view>
+          <view class='nodatas' wx:if="{{commentList.length==0}}">
+            <image src='../../images/nocomments.png'></image>
+          </view>
+
+        </scroll-view>
+
+      </swiper-item>
+    </swiper> -->
+
+
+  </view>
+
+
+</view>
+
+
+<!-- <image wx:if="{{selectedId==0}}" src='../../images/adds3.png' class='addWork' data-sid="{{stuId}}" bindtap='addWork'></image> -->

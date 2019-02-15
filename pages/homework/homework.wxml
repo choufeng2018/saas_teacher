@@ -1,0 +1,73 @@
+
+<calendar wx:if="{{showDate==true}}" calendar="{{calendar}}" gesture="{{gesture}}"></calendar>
+
+
+    <scroll-view scroll-y="true" style='height:calc(100vh);background:#f8f8f8' bindscrolltolower="toBottom" wx:if="{{showDate==false}}">
+      <view class='topDate'>
+        <!-- <picker mode="date" value="{{date}}" bindchange="bindDateChange"> -->
+          <view class="picker" bindtap='timer'>
+            <text wx:if="{{date==''}}">全部日期</text>
+            <text wx:if="{{date!=''}}">{{date}}</text>
+            <image src='../../images/calendar.png'></image>
+          </view>
+        <!-- </picker> -->
+      </view>
+
+      <view wx:if="{{workList.length!=0}}">
+        <view class='workList'>
+          <view class='listItem' bindtap='toworkdetail' data-detail="{{item}}" wx:for="{{vlist}}" data-id="{{item.practice_id}}" wx:key="{{item.id}}">
+            <view class='execise_status' wx:if="{{item.status==1}}">已练习</view>
+            <view class="topHeader">
+                
+                <image src="{{item.student.avatar}}" class='avatar'></image>
+                <view class="headerInfo">
+                    <view class="stuIfo">
+                        <text>{{item.student.username}}</text>
+                        <!-- <image src="../../images/more.png"></image> -->
+                    </view>
+                    <view class="lessonIfo">
+                        <text>{{item.ctime}}</text>
+                        <text wx:if="{{item.shedule!=null}}">{{item.shedule.lesson_name}}</text>
+                        <text wx:if="{{item.shedule!=null}}">{{item.date}} {{item.shedule.begin_time}}-{{item.shedule.end_time}}</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class='desc'>
+            <!-- <image wx:if="{{item.audio!=''}}" src="../../images/voice.png"></image> -->
+            <text>{{item.title}}</text>
+            </view>
+
+            <view class='box'>
+                <view class=' pic' catchtap='preview' wx:for="{{item.pics}}" wx:for-item="pic" data-pic="{{item}}" data-cur="{{pic}}" wx:key="{{item.id}}">
+                   <image src='{{pic}}' mode="scaleToFill"></image>
+                </view>
+            </view>
+            
+          </view>
+
+        </view>
+        <!-- 无更多数据提醒 -->
+        <view style='margin:20rpx 0'>
+          <block wx:if="{{has_more==true}}">
+          <zan-loadmore type="loading"></zan-loadmore>
+        </block>
+          <block wx:if="{{has_more==false}}">
+            <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+          </block>
+        </view>
+      </view>
+
+      <view class='NoDatas' wx:if="{{workList.length==0}}">
+        <image src='../../images/nowork.png'></image>
+      </view>
+    </scroll-view>
+
+
+
+
+<view class='model' wx:if="{{showModel}}" bindtap='closeVideo'>
+  <view class='modelCont' catchtap='showV'>
+    <video src='{{videosrc}}'></video>
+  </view>
+</view>

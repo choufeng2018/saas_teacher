@@ -1,0 +1,41 @@
+/* pages/courseComment/courseComment.wxss */
+.comment{
+  padding: 20rpx;
+  background: #fff;
+}
+
+.comment textarea{
+  height: 240rpx;
+  line-height: 44rpx;
+  color: #5a5a5a;
+  font-size: 28rpx;
+  width: 100%
+}
+.Picbox{
+  overflow: hidden
+}
+.Picbox .imgItem{
+  vertical-align: bottom;
+  width: 223.333rpx;
+  height: 223.333rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.Picbox .img:nth-of-type(3n) .imgItem{
+  margin-right: 0rpx;
+}
+
+.img{
+  float: left;
+  position: relative
+}
+
+.close{
+  position:absolute;
+right:24rpx;
+height:40rpx;
+width:40rpx;
+top:7rpx;
+}
+
+

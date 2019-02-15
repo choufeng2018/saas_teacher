@@ -1,0 +1,100 @@
+<zan-toptips content="{{content}}" duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}" />
+
+<view class="item Nsize cell-space head" bindtap='upload' style='margin-bottom:8rpx'>
+  <view class='headLeft'>
+    <image src='{{avatar}}' class='logo' mode='scaleToFill'></image>
+    <text>学员头像</text>
+  </view>
+  <image src='../../images/more.png' class='stuMore'></image>
+</view>
+
+<view class='read'>
+  <view class='item Nsize cell-space'>
+    <view>
+      <text>姓名</text>
+      <text class='inpu_tip'>(必填)</text>
+    </view>
+    <input type='text' value='{{username}}' bindinput='user' placeholder='请输入姓名' placeholder-class='holder'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+
+    <view>
+      <text>联系方式</text>
+      <text class='inpu_tip'>(必填)</text>
+    </view>
+    <input type='number' value='{{mobile}}' bindinput='mobile' placeholder='请输入联系方式' placeholder-class='holder'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+
+    <view>
+      <text>选择性别</text>
+      <text class='inpu_tip'>(必填)</text>
+    </view>
+    <picker bindchange="genderChange" value="{{index}}" range="{{genders}}" range-key="{{'gender_txt'}}">
+      <view class="picker">
+        <block wx:if="{{index==''}}">
+          <text style='color:#a5a5a5'>请选择性别</text>
+        </block>
+        {{genders[index].gender_txt}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='item cell-space Nsize'>
+
+
+    <view>
+      <text>出生日期</text>
+      <text class='inpu_tip'>(选填)</text>
+    </view>
+
+
+    <picker mode="date" value="{{birthday}}" bindchange="dateChange">
+      <view class="picker">
+        <text wx:if="{{birthday==''}}" style='color:#a5a5a5'>请选择出生日期</text> {{birthday}}
+      </view>
+    </picker>
+  </view>
+
+  <!-- <view class='item cell-space Nsize'>
+    <text>学员分类(在读、试听、过期、停课)</text>
+    <picker bindchange="typeChange" value="{{TpChange}}" range="{{stuSort}}" range-key="{{'txt'}}">
+      <view class="picker">
+        <block wx:if="{{TpChange==''}}">
+          <text style='color:#a5a5a5'>请选择分类</text>
+        </block>
+        {{stuSort[TpChange].txt}}
+      </view>
+    </picker>
+  </view> -->
+
+  <!-- <view class='item cell-space Nsize'>
+    <view>学员等级</view>
+    <view bindtap='toSelect'>
+      <text style='color:#a5a5a5' wx:if="{{levelname==''}}">请选择学员等级</text> {{levelname}}</view>
+  </view> -->
+
+  <view class='item item_addr Nsize' style='height:150rpx;margin-top:8rpx;'>
+
+    <!-- <view class='adr_l'>
+      <text>家庭住址</text>
+      <text class='inpu_tip'>(选填)</text>
+    </view> -->
+    <textarea type='text' value='{{address}}' placeholder='请输入家庭地址（选填）' bindinput='address'></textarea>
+  </view>
+</view>
+
+
+<view class="Nsize remark">
+  <!-- <view>备注</view> -->
+  <textarea value='{{remark}}' maxlength="140" class='Nsize' placeholder='请输入备注' placeholder-class='holder' bindinput='remark'></textarea>
+  <view class="restrict">
+    {{currenttextNumber}}/{{maxtext}}
+  </view>
+</view>
+
+
+<!-- <view class='bt-fixed' bindtap='editStu'>创建学员</view> -->
+<button class='bt-fixed' type="default" size="{{defaultSize}}" plain="{{plain}}" bindtap='editStu' loading="{{loading}}" disabled='{{isCreate}}'>创建学员</button>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课表",
+  "usingComponents": {
+    "zan-tab": "../../dist/paitab/index",
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+}

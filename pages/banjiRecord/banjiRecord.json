@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "课堂录音",
+  "usingComponents": {
+    "wxzx-slider": "../../component/wxzx-slider/wxzx-slider"
+  }
+}

@@ -1,0 +1,121 @@
+<zan-toptips content="{{content}}" duration="{{ duration }}" is-show="{{ $zanui.toptips.show }}" />
+<view class='orderType cell-space Nsize'>
+  <text>订单类型:</text>
+  <picker bindchange="orderChange" value="{{tType}}" range="{{orderType}}" range-key='txt'>
+    <view class="picker rightTxt">
+      <block wx:if="{{tType==''}}">
+        <text wx:if="{{order_type==1 || order_type==2}}">课程购买</text>
+        <text wx:if="{{order_type==3}}">课程赠送</text>
+      </block>
+      {{orderType[tType].txt}}
+    </view>
+  </picker>
+</view>
+
+<view class='orderType cell-space Nsize'>
+  <text>订单状态:</text>
+  <text wx:if="{{status!=2}}">正常</text>
+  <text wx:if="{{status==2}}">退费</text>
+</view>
+
+<view class='read'>
+  <view class='item cell-space Usize'>
+    <view>所购买课程</view>
+    <view class='enterMore'>
+      <!-- bindtap='toCourse' -->
+      <text>{{order_title}}</text>
+      <!-- <image src='../../images/enter.png'></image> -->
+    </view>
+
+  </view>
+  <view class='item cell-space Usize'>
+    <text>课时数：</text>
+   
+    <input type='number' value='{{lesson_count}}' bindinput='keshiNum' disabled='disabled'></input>
+  </view>
+  <!-- <view class='item cell-space Usize'>
+    <text>课程单价：</text>
+  
+    <input type='number' value='{{price}}' bindinput='inpuPrice' placeholder-style='color:#5a5a5a' ></input>
+  </view> -->
+
+
+  <view class='item cell-space Usize'>
+    <text>课程总价：</text>
+    <!-- <text>{{summaryPrice}}</text> -->
+    <input type='number' value='{{total}}' bindinput='summary' placeholder-style='color:#5a5a5a' ></input>
+  </view>
+  <view class='item cell-space Nsize'>
+    <text>其他金额：</text>
+    <input type='text' placeholder='{{fee}}' value='{{place}}' bindinput='otherFee'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+    <text>已上课时：</text>
+    <input type='text' value='{{already_lesson}}' bindinput='hasCoursed'></input>
+  </view>
+</view>
+
+<!-- <view class="item Nsize" style='margin-bottom:20rpx'>
+  开发测试
+</view> -->
+
+<view class='edit' wx:if="{{order_type==1 || order_type==2}}">
+  <view class='item cell-space Nsize' style='overflow:hiddden'>
+    <text>优惠折扣：</text>
+    <input type='text' placeholder="{{discount*100}}" value='{{youhui}}' style='width:500rpx;margin-right:-30rpx' bindinput='discount'></input>%
+  </view>
+
+  <view class='item cell-space Nsize'>
+    <text>其他优惠：</text>
+    <input type='text' placeholder='{{free_money}}' value='{{place}}' bindinput='free_money'></input>
+  </view>
+  <view class='item cell-space Nsize'>
+    <text>已优惠：</text>
+    <input type='text' value='{{hasfree}}'disabled="disabled"></input>
+  </view>
+</view>
+<view class='edit'>
+<view class='item cell-space Usize'>
+    <text>总金额：</text>
+    <input type='text' value='{{realtotal}}' disabled='disabled'></input>
+</view>
+</view>
+
+<view class='stu item cell-space Nsize'>
+  <view>签约日期</view>
+  <picker mode="date" value="{{utime}}" bindchange="dateChange">
+       <view class="picker Nsize" style='text-align:right'>
+          {{utime}}
+        </view>
+    </picker>
+</view>
+
+<view class='stu item cell-space Nsize' bindtap='select'>
+  <view>学员</view>
+  <image src='../../images/rightArrow.png'></image>
+</view>
+
+<view class='box'  data-id="{{student_info.id}}">
+  <!-- <view class='boxItem'>
+    <view class='avatar'>
+      <image class='image' src='{{student_info.avatar}}'></image>
+    </view>
+    <view class='Ssize'>{{student_info.username}}</view>
+  </view> -->
+  <view class='boxItem' wx:for="{{muti_choose}}">
+      <view class='avatar'>
+        <image class='image' src='{{item.avatar}}'></image>
+      </view>
+      <view class='Ssize' wx:if="{{item.name!=''}}">{{item.name}}</view>
+      <view class='Ssize' wx:if="{{item.username!=''}}">{{item.username}}</view>
+    </view>
+</view>
+
+
+<view class="Nsize remark">
+  <textarea value='{{remark}}' placeholder='备注' cursor='100' class='Nsize' bindinput='remark'></textarea>
+</view>
+
+
+<view class='btned' bindtap='submits'>确定修改</view>

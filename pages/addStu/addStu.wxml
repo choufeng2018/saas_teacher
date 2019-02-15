@@ -1,0 +1,37 @@
+<!-- pages/addStu/addStu.wxml -->
+<view wx:if="{{items.length!=0}}">
+<view class='search'>
+  <input class='Nsize' type='text' bindconfirm="searchName" bindinput='inpuName' value='{{name}}' placeholder='请输入学员姓名' placeholder-class='holder' placeholder-style='text-indent:50rpx;'></input>
+</view>
+
+
+<view class='top'>
+  <view class='selected Nsize'>已选择 {{multi_choose.length}} 人</view>
+  <view class='box' wx:if="{{multi_choose.length>0}}">
+    <view class='boxItem' wx:for="{{multi_choose}}">
+      <view class='avatar'>
+        <image class='image' src='{{item.avatar}}'></image>
+        <image class="reduce" src='../../images/reduce.png' data-index="{{index}}" data-id="{{item.attr_id}}" bindtap='reduce'></image>
+      </view>
+      <view class='Ssize'>{{item.username}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='list'>
+  <view class='item' bindtap='checks' wx:for="{{items}}" data-key="{{index}}" data-name="{{item.username}}" data-id="{{item.student_id}}" data-avatar="{{item.avatar}}">
+    <image wx:if="{{item.state==0 || item.state==undefined}}" src='../../images/uncheck.png' class='checkStatus'></image>
+    <image wx:if="{{item.state==1}}" src='../../images/checked.png' class='checkStatus'></image>
+    <image src='{{item.avatar}}' class='header' />
+    <view class='name Nsize'>{{item.username}}</view>
+  </view>
+</view>
+<view class='bt-fixed' bindtap='addStu'>添加</view>
+</view>
+
+<view class='NoData' wx:if="{{items.length==0 && noResult==false}}">
+  <image src='../../images/nostu.png'></image>
+  <!-- <view class='no_Add' bindtap='add'>创建学员</view> -->
+</view>
+
+<!-- <button class='btSend bt-fixed' type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="addArrange" hover-class="other-button-hover"> 添加 </button> -->

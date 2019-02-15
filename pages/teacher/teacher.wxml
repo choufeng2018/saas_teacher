@@ -1,0 +1,68 @@
+<!--pages/teacher/teacher.wxml-->
+<wxs src="../../wxs/sub.wxs" module="tools" />
+<view wx:if="{{teacherList.length!=0}}">
+
+<view class='search'>
+  <input class='Nsize' type='text' bindconfirm="searchName" placeholder='请输入教师姓名' placeholder-class='holder' placeholder-style='text-indent:50rpx;'></input>
+  <view class='stuTop'>
+
+    <image src='../../images/addStu.png' bindtap='addTeacher'></image>
+  </view>
+
+</view>
+<view class='teacherList'>
+  <view class='listNmae Usize'>老师 {{teacher.total}},未加入 {{teacher.un_join}}</view>
+
+  <view class='listItem' wx:for="{{teacherList}}" wx:key="{{item.id}}" data-username="{{item.username}}" data-phone="{{item.mobile}}" data-id="{{item.third_id}}" data-power="{{item.power_list}}" data-teacher_status="{{item.status}}" bindtouchstart="touchS"
+    bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+    <view class='blocks inner txt'>
+      <view class='left'>
+        <image wx:if="{{item.avatar!=''}}" src='{{item.teacher_avatar}}'></image>
+        <view class='names' wx:if="{{item.avatar==''}}">{{tools.sub(item.username)}}</view>
+        <view class='un-join-status' wx:if="{{item.status==0}}" style='background:#ffd95c;color:#fff;'>邀请中</view>
+        <view class="un-join-status" wx:if="{{item.status==1}}" style='background:#77c6ff;color:#fff;'>已加入</view>
+        <view class="un-join-status" wx:if="{{item.status==2}}" style='color:#fff;background:#f76605;'>已拒绝</view>
+        <view class="un-join-status" wx:if="{{item.status==3}}" style='color:#fff;background:#bebebe;'>已删除</view>
+        <view class='leftRight'>
+          <view class='Nsize'>{{item.username}}</view>
+          <view class='baseSmall'>{{item.mobile}}</view>
+        </view>
+      </view>
+      <view class='right'>
+        <!-- <view class='rightTop Nsize'>
+          <view>{{item.username}}</view>
+          <view class='phone baseSmall'>{{item.mobile}}</view>
+        </view> -->
+        <view class="rightsList">
+          
+          <view class='rightsItem' wx:for="{{item.power_list}}" wx:for-item="power">{{power.title}}</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{item.status==1}}" data-index="{{index}}" class="inner hasjoined">
+      <view class='joinItem' bindtap='toEdit' data-username="{{item.username}}" data-phone="{{item.mobile}}" data-id="{{item.third_id}}" data-power="{{item.power_list}}" data-teacher_status="{{item.status}}">编辑</view>
+      <view class='joinItem' data-id="{{item.third_id}}" bindtap= "delItem">删除</view>
+    </view>
+    <view wx:if="{{item.status==0}}" data-index="{{index}}" data-id="{{item.third_id}}" bindtap= "cancel" style='background:#ffd95c' class="inner del">撤销</view>
+    <view wx:if="{{item.status==2}}" data-index="{{index}}" data-id="{{item.third_id}}" bindtap= "invite" style='background:#A8E686' class="inner del">邀请</view>
+  </view>
+
+  <view class='delateTeacher' bindtap='delateTeacher'>已删除的教师<image src='../../images/more2.png'></image></view>
+
+  <view style='margin:20rpx 0;'>
+    <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+  </view>
+
+  
+</view>
+</view>
+
+<!-- <view class='bt-fixed' bindtap='addTeacher'>新增</view> -->
+<view class='NoData' wx:if="{{teacherList.length==0 && noResult==false}}">
+  <image src='../../images/noteacher.png'></image>
+  <view class='no_Add' bindtap='addTeacher'>添加老师</view>
+</view>
+<view class='NoData' wx:if="{{teacherList.length==0 &&noResult==true}}">
+  <image src='../../images/noresult.png'></image>
+  <view class='no_Add' bindtap='back'>返回</view>
+</view>

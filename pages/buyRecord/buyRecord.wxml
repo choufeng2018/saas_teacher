@@ -1,0 +1,23 @@
+<!--pages/buyRecord/buyRecord.wxml-->
+<view class='recordBox'>
+<block wx:for="{{orderList}}">
+  <view class='recordItem' bindtap='toDetail' data-id="{{item.id}}">
+    <view class='Nsize recordName'>{{item.title}}</view>
+    <view class='cell-space Nsize'>
+      <text>{{item.student_info.student}}</text>
+      <text>{{item.student_info.mobile}}</text>
+    </view>
+    
+    <view class='cell-space Nsize'>
+      <text>{{item.ctime}}</text>
+      <text style='color:#af433b'>+{{item.price}}</text>
+    </view>
+
+  </view>
+  </block>
+  <view style='margin:20rpx 0;'>
+    <!-- <zan-loadmore type="loading"></zan-loadmore> -->
+    <zan-loadmore type="text" text="暂无更多数据"></zan-loadmore>
+  </view>
+  
+</view>

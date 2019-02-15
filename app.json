@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/stu/stu",
+    "pages/signs/signs",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/loginNew/loginNew",
+    "pages/sendhomework/sendhomework",
+    "pages/homeworkDetail/homeworkDetail",
+    "pages/edithomework/edithomework",
+    "pages/homework/homework",
+    "pages/teacherComment/teacherComment",
+    "pages/teacherSkip/teacherSkip",
+    "pages/banjiRecord/banjiRecord",
+    "pages/fankui/fankui",
+    "pages/addStu/addStu",
+    "pages/stuList/stuList",
+    "pages/signDetail/signDetail",
+    "pages/courseComment/courseComment",
+    "pages/stuDetail/stuDetail",
+    "pages/createStu/createStu",
+    "pages/editStu/editStu",
+    "pages/buyRecord/buyRecord",
+    "pages/recordDetail/recordDetail",
+    "pages/editCourseOrder/editCourseOrder",
+    "pages/my/my",
+    "pages/order/order",
+    "pages/logs/logs"
+  ],
+  "navigateToMiniProgramAppIdList": [
+    "wxf156f99010f9575d"
+],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F76605",
+    "navigationBarTitleText": "乐鸟老师助手",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#C3B8B4",
+    "selectedColor": "#F76605",
+    "borderStyle":"#f4f4f4",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/stu/stu",
+        "text": "学员",
+        "iconPath": "images/member-01.png",
+        "selectedIconPath": "images/member-02.png"
+      },
+      
+      {
+        "pagePath": "pages/homework/homework",
+        "text": "作业",
+        "iconPath": "images/work_01.png",
+        "selectedIconPath": "images/work_02.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my_01.png",
+        "selectedIconPath": "images/my_02.png"
+      }
+    ]
+  }
+}

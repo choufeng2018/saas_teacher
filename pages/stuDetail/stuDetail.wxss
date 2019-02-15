@@ -1,0 +1,514 @@
+/* pages/stuDetail/stuDetail.wxss */
+.topInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 24rpx;
+    line-height: 24rpx;
+    color: #a5a5a5;
+    font-size: 28rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    margin-bottom: 20rpx;
+
+}
+
+.infoItem:nth-of-type(1){
+    padding-right: 16rpx;
+    position: relative;
+}
+.infoItem:nth-of-type(1)::before{
+    content: '';
+    position: absolute;
+    height: 20rpx;
+    background: #bebebe;
+    width: 2rpx;
+    top: 0rpx;
+    right: 0;
+    z-index: 9999
+}
+
+.sex{
+  position: absolute;
+  width: 36rpx;
+  border: 4rpx solid #fff;
+  border-radius: 22rpx;
+  height: 36rpx;
+  left: 46rpx;
+  bottom: -14rpx
+}
+.addWork{
+    position: fixed;
+    width: 88rpx;
+    height: 88rpx;
+    right: 40rpx;
+    bottom: 80rpx;
+    z-index: 999
+}
+
+.birthicon{
+width: 24rpx;
+height: 24rpx;
+margin-right: 16rpx;
+margin-bottom: 5rpx;
+}
+
+.cTle{
+  margin-bottom: 20rpx;
+}
+.nodatas{
+width: 100%;
+text-align: center;
+margin-top: 160rpx;
+}
+
+.nodatas image{
+  width: 360rpx;
+  height: 328rpx;
+}
+.detail{
+  width: 750rpx;
+  height: 100vh;
+  overflow: hidden
+}
+.circle{
+  width: 750rpx;
+  background: #fff;
+  height: 212rpx;
+  position: relative;
+  /* border-radius: 425rpx; */
+  left: 0rpx;
+  top: 0rpx;
+
+  clear: both;
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 40rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+.name{
+  /* position: absolute;
+  top: 0rpx; */
+  color: #333;
+  font-size: 28rpx;
+  width:100%;
+  z-index: 33
+}
+
+.birth{
+  /* position: absolute;
+  top: 65rpx; */
+  color: #333;
+  font-size: 24rpx;
+  width:100%;
+  z-index: 33;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:flex-start;
+  height: 34rpx;
+
+}
+
+.circle .avatar{
+ height:120rpx;
+width:120rpx;
+border: 8rpx solid rgba(235,235,235,1);
+border-radius:68rpx;
+/* position:absolute;
+bottom:-55rpx;
+left:315rpx;
+z-index: 33 */
+}
+.cir_avatar{
+    width: 136rpx;
+    height: 136rpx;
+    margin-right: 40rpx;
+    position: relative;
+}
+.right_tops{
+    height: 136rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around
+}
+
+
+.tops{
+  height:212rpx;
+  /* margin-bottom: 20rpx; */
+  background: #fff;
+}
+.cir{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 225rpx;
+  z-index: 1;
+}
+
+
+
+
+
+.tops .phone{
+  position:absolute;
+top:280rpx;
+width:100%;
+height:70rpx;
+line-height:70rpx;
+text-align:center;
+font-size:28rpx;
+color:#f76605;
+}
+
+
+
+
+
+
+.statusList{
+  display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+/* height:80rpx; */
+/* background:pink; */
+/* position:absolute;
+width:100%;
+top:350rpx; */
+}
+
+.statuItem{
+  box-sizing: border-box;
+  border: 1rpx solid rgba(247,102,5,1);
+  margin-right:16rpx;
+  padding: 0 8rpx;
+  height: 28rpx;
+  line-height: 27rpx;
+  color: rgba(247,102,5,1);
+  font-size: 20rpx;
+  border-radius: 6rpx;
+}
+
+.top_remark{
+  position:absolute;
+top:430rpx;
+text-align:center;
+width:100%;
+height:70rpx;
+line-height:70rpx;
+}
+
+page{
+  background: #f8f8f8;
+}
+.topDate{
+  padding: 20rpx;
+  background: #fff;
+}
+
+
+
+.comment{
+  padding: 20rpx;
+  
+}
+
+.cList{
+  padding: 20rpx;
+  background: #fff;
+  margin-bottom:20rpx;
+}
+
+.box{
+    width: 670rpx;
+    overflow: hidden;
+    height: 136rpx;
+  }
+  
+  .box .pic{
+    float: left;
+    margin-right: 20rpx;
+  }
+  
+  .box .pic image{
+    margin-bottom: 20rpx;
+    width: 118rpx;
+    height: 118rpx;
+    border-radius: 8rpx;
+    vertical-align: bottom;
+  }
+  
+  
+  .box .pic:nth-of-type(5n){
+    margin-right: 0
+  }
+  
+  .desc{
+    margin: 20rpx 0;
+    font-size: 28rpx;
+    color: #333;
+  }
+  
+  .desc_detail{
+    /* margin-top:50rpx; */
+  }
+
+.comment .desc{
+  margin-top: 20rpx;
+}
+
+/* .desc_detail{
+  margin-top:50rpx;
+} */
+
+.video{
+  position: relative;
+
+    filter: brightness(80%);
+}
+
+.video .play{
+  position: absolute;
+  width: 70rpx!important;
+  height: 70rpx!important;
+  left: 70rpx;
+  top: 70rpx;
+  z-index: 999
+}
+
+
+/* pages/courseType/CourseType.wxss */
+
+.courseList {
+  background: #fff;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  height: 90rpx;
+  padding: 20rpx;
+  border-radius:14rpx;
+  position: relative
+}
+
+.courseBox {
+  padding: 20rpx;
+  padding-bottom: 0;
+}
+
+.courseDesc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.courseDesc .baseSmall{
+  position: absolute;
+  height: 40rpx;
+  line-height: 40rpx;
+  top:45rpx;
+  right: 20rpx
+}
+
+.delate{
+width:80rpx;
+height:80rpx;
+line-height:80rpx;
+color:#fff;
+font-size:24rpx;
+background:#f76605;
+border-radius:40rpx;
+text-align:center;
+position:fixed;
+right:30rpx;
+bottom:380rpx;
+}
+
+
+.listItem .topHeader{
+    display: flex;
+    flex-direction: row;
+    /* padding: 20rpx;
+    */
+    align-items: center;
+    height: 80rpx;
+    padding: 20rpx;
+    padding-bottom: 40rpx; 
+    
+    /* box-sizing: border-box; */
+    border-bottom: 1rpx solid #ebebeb;
+  }
+
+  .execise_status{
+    width: 112rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    background: #FFE8D9;
+    border-radius: 12rpx;
+    text-align: center;
+    color: #F76605;
+    font-size: 24rpx;
+    position: absolute;
+    z-index: 999;
+    right: 20rpx;
+    top: 0;
+  }
+
+  .topHeader .avatar{
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 40rpx;
+  }
+
+  .headerInfo{
+    height: 80rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .headerInfo .stuInfo{
+    font-size: 32rpx;
+    color: #333;
+    margin-right: 20rpx;
+  }
+  .headerInfo image{
+    width: 24rpx;
+    height: 24rpx;
+  }
+
+  .lessonIfo{
+    
+    font-size: 24rpx;
+    color: #a5a5a5;
+    height: 34rpx;
+    line-height: 34rpx;
+    
+  }
+
+  .lessonIfo text{
+    display: inline-block;
+    padding: 0 16rpx;
+    border-right: 1rpx solid #ebebeb;
+  }
+
+
+  .lessonIfo text:nth-of-type(1){
+    padding-left: 0;
+  }  
+    .lessonIfo text:nth-last-of-type(1){
+      border-right: 0;
+    }
+
+    .stuIfo{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .stuIfo text{
+      font-size: 32rpx;
+      color: #333;
+      margin-right: 20rpx;
+    }
+
+    .workList .desc{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .workList .desc image{
+      width: 40rpx;
+      height: 40rpx;
+      margin-right: 20rpx;
+    }
+
+    .workList{
+    padding: 20rpx;
+  }
+  
+  .listItem{
+    padding: 20rpx;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-between; */
+    background: #fff;
+    border-radius: 12rpx;
+    margin-bottom: 20rpx;
+    width:100%;
+    box-sizing:border-box;
+    position: relative;
+    padding-bottom:0;
+  }
+
+  .sendBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 88rpx;
+    background: #fff;
+  }
+
+   .sendBtn image{
+     width: 32rpx;
+     height: 32rpx;
+     margin-right: 20rpx;
+     
+   }
+
+   .sendBtn text{
+     font-size: 28rpx;
+     color: #F76605
+   }
+
+   .editicon{
+     width: 40rpx;
+     height: 40rpx;
+     position: absolute;
+     right: 40rpx;
+     top: 40rpx;
+   }
+
+   .menu{
+  position: absolute;
+  top:100rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background: #999999;
+  color: #fff!important;
+  right: 40rpx;
+  height: auto!important;
+  z-index: 999
+}
+.menu::before{
+   display:block;
+    content:'';
+    border-width:12rpx 12rpx 12rpx 12rpx;
+    border-style:solid;
+    border-color:transparent transparent #999 transparent;
+    
+    /* 定位 */
+    position:absolute;
+    right:10rpx;
+    top:-24rpx; 
+}
+.menuItem{
+ color: #fff!important;
+ font-size:24rpx;
+}
+.menuItem:nth-of-type(1){
+  padding-bottom: 10rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1rpx solid #bebebe;
+ 
+}

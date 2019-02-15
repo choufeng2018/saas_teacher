@@ -1,0 +1,272 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.1",
+	"appid": "wx22034e7aacba4b87",
+	"projectname": "%E4%B9%90%E9%B8%9F%E6%95%99%E5%B8%88%E7%AB%AF",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 37,
+			"list": [
+				{
+					"id": -1,
+					"name": "排课表",
+					"pathName": "pages/arrangeForm/arrangeForm",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "增加排课表",
+					"pathName": "pages/addArrange/addArange",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择课程",
+					"pathName": "pages/chooseClass/chooseClass",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择老师",
+					"pathName": "pages/chooseTeacher/chooseTeacher",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "学员",
+					"pathName": "pages/stu/stu",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "学员详情",
+					"pathName": "pages/stuDetail/stuDetail",
+					"query": "id=987&thd=6af7ca4b-4af7-34d8-8643-5c28850172b9"
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": "id=75"
+				},
+				{
+					"id": 7,
+					"name": "签到详情",
+					"pathName": "pages/signDetail/signDetail",
+					"query": "id=3448"
+				},
+				{
+					"id": 23,
+					"name": "课程评价",
+					"pathName": "pages/courseComment/courseComment",
+					"query": "comment_status=0&shedule_id=193&student_id=16"
+				},
+				{
+					"id": -1,
+					"name": "测试",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": 31,
+					"name": "签到",
+					"pathName": "pages/signs/signs",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "班级添加排课",
+					"pathName": "pages/addclassKejie/addclassKejie",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/recordDetail/recordDetail",
+					"query": "id=15"
+				},
+				{
+					"id": -1,
+					"name": "更改班级详情",
+					"pathName": "pages/editClassDetail/editClassDetail",
+					"query": "detail={\"id\":39,\"agency_id\":7,\"type\":1,\"name\":\"钢琴6级5节\",\"lesson_id\":19,\"max_member\":2,\"header_uid\":\"22\",\"class_room\":{\"id\":14,\"agency_id\":7,\"name\":\"b教室\",\"status\":1,\"creator\":7,\"createtime\":1537866955,\"updatetime\":1537866955},\"status\":1,\"creator\":7,\"updator\":7,\"remark\":\"测试\",\"createtime\":1537847874,\"updatetime\":1537869666,\"members\":\"小椅子 小花盆 小可爱\",\"students\":[{\"id\":25,\"name\":\"小椅子\",\"avatar\":\"https://peilian.11taotao.com//assets/img/avatar.png\"},{\"id\":26,\"name\":\"小花盆\",\"avatar\":\"https://peilian.11taotao.com//assets/img/avatar.png\"},{\"id\":27,\"name\":\"小可爱\",\"avatar\":\"https://peilian.11taotao.com/assets/img/avatar.png\"}],\"teacher\":{\"id\":22,\"username\":\"小鱼儿\"},\"sign_count\":0,\"un_sign_count\":46,\"lesson\":{\"id\":19,\"cid\":0,\"cover\":\"https://peilian.11taotao.com/assets/img/timg.jpg\",\"agency_id\":7,\"name\":\"钢琴6级5节\",\"price\":\"130.00\",\"hour\":5,\"status\":1,\"creator\":\"测试人员\",\"createtime\":\"2018-09-13 16:18\",\"updatetime\":\"2018-09-25 20:22\"},\"next_lesson\":[]}"
+				},
+				{
+					"id": -1,
+					"name": "教室列表",
+					"pathName": "pages/roomManage/roomManage",
+					"query": ""
+				},
+				{
+					"id": 42,
+					"name": "创建课程订单",
+					"pathName": "pages/addNewOrder/addNewOrder",
+					"query": "product_id=207&lesson_name=萨克斯&detail={\"id\":207,\"cid\":0,\"cover\":\"https://d.saas.kuaipeilian.com/assets/img/timg.jpg\",\"agency_id\":2,\"third_agency_id\":\"377ec97c-5df5-3fe9-0cc4-5bbe0a58cd7a\",\"name\":\"萨克斯\",\"price\":\"0.00\",\"hour\":0,\"status\":1,\"creator\":\"186****1932\",\"createtime\":\"2018-11-12 12:55\",\"updatetime\":\"2018-11-12 12:55\"}"
+				},
+				{
+					"id": 43,
+					"name": "学员列表",
+					"pathName": "pages/addStu/addStu",
+					"query": ""
+				},
+				{
+					"id": 44,
+					"name": "排课列表",
+					"pathName": "pages/stuList/stuList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "添加排课",
+					"pathName": "pages/addArrange/addArange",
+					"query": ""
+				},
+				{
+					"id": 46,
+					"name": "修改课程订单",
+					"pathName": "pages/editCourseOrder/editCourseOrder",
+					"query": "num=10&pid=130&order_id=114&order_title=测试测试&price=100.00&lesson_count=10&money=700.00&stuInfo={\"id\":416,\"username\":\"莉莉\",\"avatar\":\"https://d.saas.kuaipeilian.com//assets/img/avatar.png\",\"mobile\":\"13456789876\",\"gender\":2,\"agency_id\":2,\"status\":1,\"age\":7,\"gender_text\":\"女\",\"status_text\":\"未签约\",\"learn_status_text\":\"未知\",\"creator\":null}&discount=0.50&free_money=0.00&fee=200.00&total=1200.00&already_lesson=0&remark=&type=1"
+				},
+				{
+					"id": -1,
+					"name": "班级",
+					"pathName": "pages/classManage/classManage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新用户进来",
+					"pathName": "pages/loginNew/loginNew",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "排课详情",
+					"pathName": "pages/paikeDetail/paikeDetail",
+					"query": ""
+				},
+				{
+					"id": 42,
+					"name": "布置作业",
+					"pathName": "pages/sendhomework/sendhomework",
+					"query": "detail={\"id\":25509,\"agency_id\":1,\"third_student_id\":\"\",\"third_agency_id\":\"\",\"third_id\":\"60cbadda-0ab4-182d-feee-5bbee6086a2a\",\"teacher_id\":\"8\",\"banji_lesson_id\":1074,\"lesson_id\":149,\"out_trade_no\":\"\",\"date\":\"2018-11-29\",\"week\":\"星期四\",\"banji_id\":1066,\"student_id\":\"352\",\"begin_time\":\"06:00\",\"end_time\":\"07:00\",\"dec_num\":1,\"class_room\":\"钢琴曲教室1\",\"status\":1,\"is_deduct\":0,\"is_work\":0,\"sign_status\":0,\"sign_pic\":\"\",\"is_sign\":0,\"comment_status\":0,\"dispatch_id\":0,\"creator\":\"186****1932\",\"updator\":0,\"remark\":\"\",\"createtime\":\"2018-11-12 15:03\",\"updatetime\":\"2018-11-12 15:03\",\"teacher_name\":\"欧阳\",\"status_text\":\"未结课\",\"dispatch\":{},\"lesson\":\"吉他\",\"banji_name\":\"扬扬,白菜\",\"class_room_id\":12,\"minute\":60,\"creator_text\":\"186****1932\",\"banji_type\":1,\"lesson_info\":{\"id\":149,\"cid\":0,\"cover\":\"https://d.kpl.11taotao.com/assets/img/timg.jpg\",\"agency_id\":1,\"third_agency_id\":\"c198de72-fc7e-9045-f333-5bbde230be6b\",\"name\":\"吉他\",\"price\":\"0.00\",\"hour\":0,\"status\":1,\"creator\":\"\",\"createtime\":\"2018-11-09 16:36\",\"updatetime\":\"2018-11-09 16:36\"},\"student_list\":[{\"id\":352,\"pid\":0,\"agency_id\":1,\"third_agency_id\":\"c198de72-fc7e-9045-f333-5bbde230be6b\",\"third_id\":\"6f462570-20ec-df69-1631-5bd6e204faf2\",\"level\":1,\"username\":\"扬扬\",\"mobile\":\"13294111632\",\"avatar\":\"https://d.kpl.11taotao.com//assets/img/avatar.png\",\"gender\":1,\"birthday\":\"1997-05-05\",\"age\":21,\"learn_status\":2,\"sno\":\"\",\"remark\":\"\",\"rest_lesson\":79,\"uid\":6,\"student_id\":352,\"is_bind_weixin\":0,\"is_bind_mobile\":0,\"status\":1,\"creator\":\"186****1932\",\"updator\":0,\"createtime\":1540809228,\"updatetime\":1540809228,\"shedule_rest_lesson\":5,\"shedule_id\":25509,\"shedule_info\":{\"id\":25509,\"agency_id\":1,\"third_student_id\":\"\",\"third_agency_id\":\"\",\"third_id\":\"60cbadda-0ab4-182d-feee-5bbee6086a2a\",\"teacher_id\":\"8\",\"banji_lesson_id\":1074,\"lesson_id\":149,\"out_trade_no\":\"\",\"date\":\"2018-11-29\",\"week\":4,\"banji_id\":1066,\"student_id\":\"352\",\"begin_time\":600,\"end_time\":700,\"dec_num\":\"1.0\",\"class_room\":12,\"status\":1,\"is_deduct\":0,\"is_work\":0,\"sign_status\":0,\"sign_pic\":\"\",\"is_sign\":0,\"comment_status\":0,\"dispatch_id\":0,\"creator\":1,\"updator\":0,\"remark\":\"\",\"createtime\":1542006216,\"updatetime\":1542006222,\"sign_status_text\":\"未确认\",\"comment_status_text\":\"未课评\"},\"gender_text\":\"男\",\"status_text\":\"未签约\",\"learn_status_text\":\"试听\"},{\"id\":353,\"pid\":0,\"agency_id\":1,\"third_agency_id\":\"c198de72-fc7e-9045-f333-5bbde230be6b\",\"third_id\":\"75db9d6d-d0fd-82d6-5efb-5bd6e25108e8\",\"level\":0,\"username\":\"白菜\",\"mobile\":\"17709876543\",\"avatar\":\"https://d.kpl.11taotao.com//assets/img/avatar.png\",\"gender\":1,\"birthday\":\"1997-05-05\",\"age\":21,\"learn_status\":3,\"sno\":\"\",\"remark\":\"\",\"rest_lesson\":79,\"uid\":0,\"student_id\":353,\"is_bind_weixin\":0,\"is_bind_mobile\":0,\"status\":1,\"creator\":\"186****1932\",\"updator\":1,\"createtime\":1540809228,\"updatetime\":1541126901,\"shedule_rest_lesson\":5,\"shedule_id\":25516,\"shedule_info\":{\"id\":25516,\"agency_id\":1,\"third_student_id\":\"\",\"third_agency_id\":\"\",\"third_id\":\"60cbadda-0ab4-182d-feee-5bbee6086a2a\",\"teacher_id\":\"8\",\"banji_lesson_id\":1074,\"lesson_id\":149,\"out_trade_no\":\"\",\"date\":\"2018-11-29\",\"week\":4,\"banji_id\":1066,\"student_id\":\"353\",\"begin_time\":600,\"end_time\":700,\"dec_num\":\"1.0\",\"class_room\":12,\"status\":1,\"is_deduct\":0,\"is_work\":0,\"sign_status\":0,\"sign_pic\":\"\",\"is_sign\":0,\"comment_status\":0,\"dispatch_id\":0,\"creator\":1,\"updator\":0,\"remark\":\"\",\"createtime\":1542006216,\"updatetime\":1542006222,\"sign_status_text\":\"未确认\",\"comment_status_text\":\"未课评\"},\"gender_text\":\"男\",\"status_text\":\"未签约\",\"learn_status_text\":\"过期\"}],\"banji_lesson_info\":{\"id\":1074,\"agency_id\":1,\"third_agency_id\":\"c198de72-fc7e-9045-f333-5bbde230be6b\",\"third_id\":\"60cbadda-0ab4-182d-feee-5bbee6086a2a\",\"banji_id\":1066,\"lesson_id\":149,\"class_room\":0,\"teacher_id\":\"8\",\"startdate\":\"2018-11-26\",\"enddate\":\"2018-12-02\",\"begin_time\":\"06:00\",\"minute\":60,\"end_time\":\"7:00\",\"dec_num\":1,\"student_list\":\"352,353\",\"frequency\":1,\"frequency_week\":\"\",\"lesson_count\":7,\"end_lesson_count\":0,\"remark\":\"\",\"status\":1,\"creator\":1,\"updator\":0,\"createtime\":1542006216,\"updatetime\":1542006222}}&index=0"
+				},
+				{
+					"id": 24,
+					"name": "作业详情",
+					"pathName": "pages/homeworkDetail/homeworkDetail",
+					"query": "p_id=700d9e79-6cc9-a1a1-66c3-5c09efab9ac7"
+				},
+				{
+					"id": -1,
+					"name": "作业点评",
+					"pathName": "pages/homework/homework",
+					"query": ""
+				},
+				{
+					"id": 26,
+					"name": "陪课点评",
+					"pathName": "pages/teacherComment/teacherComment",
+					"query": "id=243"
+				},
+				{
+					"id": -1,
+					"name": "主课老师批阅",
+					"pathName": "pages/teacherSkip/teacherSkip",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "班级录音列表",
+					"pathName": "pages/banjiRecord/banjiRecord",
+					"query": ""
+				},
+				{
+					"id": 48,
+					"name": "签到详情",
+					"pathName": "pages/signDetail/signDetail",
+					"query": "id=25914"
+				},
+				{
+					"id": -1,
+					"name": "作业",
+					"pathName": "pages/homework/homework",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "作业",
+					"pathName": "pages/homework/homework",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "学员列表",
+					"pathName": "pages/stu/stu",
+					"query": "pid=75db9d6d-d0fd-82d6-5efb-5bd6e25108e8"
+				},
+				{
+					"id": 33,
+					"name": "课堂录音",
+					"pathName": "pages/banjiRecord/banjiRecord",
+					"query": "pratice_id=700d9e79-6cc9-a1a1-66c3-5c09efab9ac7&kpl_class_id=b9dbef20-f6ab-11e8-b994-75d9f76aa013"
+				},
+				{
+					"id": 34,
+					"name": "编辑作业",
+					"pathName": "pages/edithomework/edithomework",
+					"query": "detail={\"shedule_id\":0,\"practice_id\":\"94cbf62f-80e4-bd7e-10b1-5c09e4e1ff0c\",\"desc\":\"作业写完了吗？作业写完了吗？作业写完了吗？作业写完了吗？\",\"pics\":[\"http://prd-saas.oss-cn-shanghai.aliyuncs.com/uploads/20181207/7354e12ff534c8b5b54dab8484a23c10.jpg\"],\"title\":\"作业写完了吗\",\"audio\":\"http://prd-saas.oss-cn-shanghai.aliyuncs.com/uploads/20181207/458a0c142fc59be762595e094ee7e881.mp3\",\"status\":0,\"audio_time\":\"02:00\",\"agency_id\":74,\"comment_count\":0,\"spread_back_count\":0,\"ctime\":\"2018-12-07 14:14:41\",\"teacher_id\":152,\"third_teacher_id\":\"8d3a4962-0196-224e-e9b9-5bff654f5829\",\"third_student_id\":\"84ece57f-d4b1-d693-c192-5bff673e99ea\",\"shedule_info\":[],\"student_name\":\"测试学员\",\"username\":\"测试教师\",\"avatar\":\"\",\"seconds\":120,\"is_edit\":1,\"comment\":[]}"
+				},
+				{
+					"id": -1,
+					"name": "音频",
+					"pathName": "pages/audio/audio",
+					"query": "id=26061"
+				},
+				{
+					"id": -1,
+					"name": "批阅",
+					"pathName": "pages/teacherSkip/teacherSkip",
+					"query": "id=26061"
+				},
+				{
+					"id": -1,
+					"name": "修改学员",
+					"pathName": "pages/editStu/editStu",
+					"query": "detail={\"id\":1644,\"pid\":0,\"agency_id\":131,\"third_agency_id\":\"5666dfbb-9ce6-8cd7-0156-5c29bba2bec0\",\"third_id\":\"678724a8-8be5-3a71-24ca-5c29f01e7524\",\"level\":0,\"username\":\"工业\",\"mobile\":\"15612345678\",\"avatar\":\"http://prd-saas.oss-cn-shanghai.aliyuncs.com/uploads/20181231/575b6efab9bba8cce1ae69269a5eddb2.jpeg\",\"gender\":1,\"birthday\":\"2012-12-31\",\"age\":6,\"learn_status\":1,\"sno\":\"\",\"remark\":\"\",\"rest_lesson\":0,\"uid\":128,\"student_id\":1644,\"is_bind_mobile\":1,\"is_bind_weixin\":0,\"address\":\"北极光\",\"status\":1,\"creator\":\"tfgyihjk\",\"updator\":0,\"createtime\":1546252402,\"updatetime\":1546252402,\"gender_text\":\"男\",\"status_text\":\"未签约\",\"learn_status_text\":\"在读\"}"
+				}
+			]
+		}
+	}
+}

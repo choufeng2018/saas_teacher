@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "已删除教师",
+  "usingComponents": {
+    "zan-loadmore": "../../dist/loadmore/index"
+  }
+
+}

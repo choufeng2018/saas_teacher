@@ -1,0 +1,146 @@
+<!--pages/homeworkDetail/homeworkDetail.wxml-->
+
+<view class="mainTeacher">
+  <view class="header">
+    <view class="h_l">
+      <image src="../../images/avatar.png"></image>
+      <text>{{detail.kpl_teacher.username}}</text>
+    </view>
+    <view bindtap='record' data-pratice_id="{{detail.practice_id}}" data-kpl_class_id="{{detail.kpl_class_id}}">
+      <text style="font-size:32rpx;color:#F76605;margin-right:20rpx;">课堂录音</text>
+      <image src="../../images/record_more.png" class="editIcon"></image>
+    </view>
+
+  </view>
+
+  <view class="workdetail">
+    <view class="className">{{detail.lesson_name}}</view>
+    <!-- <view class="workCont">
+      {{detail.content}}
+    </view> -->
+    <view class="audioBox">
+      <view class='top_acts'>
+        <view class='start_act'>{{pass_time}}</view>
+        <!-- <view class="line"></view> -->
+        <view class='end_act'>{{total_time}}</view>
+        <!-- <image src="../../images/delaterecord.png" class="delateRecord"></image> -->
+      </view>
+
+      <view class='slider_bg'>
+        <wxzx-slider id='wxzxSlider' blockSrc='../../images/slider.png' blockImageWidth='34' blockImageHeight='34' value='{{value}}' max='{{max}}' percent='{{percent}}' width='390' bind:sliderTap="sliderTap" bind:sliderStart="sliderStart" bind:sliderChange="sliderChange"
+          bind:sliderEnd="sliderEnd" bind:sliderCancel="sliderCancel" slider-left='15' disabled='{{disabled}}'></wxzx-slider>
+      </view>
+
+
+
+      <image wx:if="{{playing==false && endPlay==false}}" src="../../images/rplay.png" class="initPlay" bindtap='playRec'></image>
+      <image wx:if="{{playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='endPlay'></image>
+      <image wx:if="{{playing==false && endPlay==true}}" src="../../images/rplay.png" class="initPlay" bindtap='contiunePlay'></image>
+
+    </view>
+    <view class="workInfo">
+      <view class="info_item">{{detail.student_name}}</view>
+      <!-- <view class="info_item">李老师</view>
+      <view class="info_item">2018-11-12</view> -->
+    </view>
+  </view>
+
+  <view class='scoreBox'>
+    <view class='scoreItem'>
+      <view class='scoreTle'>上课表现</view>
+      <view class='scoreStar'>
+        <image src='../../images/scores.png' wx:for="{{detail.class_behave}}"></image>
+        <image src='../../images/score.png' wx:for="{{5-detail.class_behave}}"></image>
+      </view>
+    </view>
+    <view class='scoreItem'>
+      <view class='scoreTle'>音符准确度</view>
+      <view class='scoreStar'>
+        <image src='../../images/scores.png' wx:for="{{detail.voice_exact}}"></image>
+        <image src='../../images/score.png' wx:for="{{5-detail.voice_exact}}"></image>
+      </view>
+    </view>
+    <view class='scoreItem'>
+      <view class='scoreTle'>节奏准确度</view>
+      <view class='scoreStar'>
+        <image src='../../images/scores.png' wx:for="{{detail.pace_exact}}"></image>
+        <image src='../../images/score.png' wx:for="{{5-detail.pace_exact}}"></image>
+      </view>
+    </view>
+    <view class='scoreItem'>
+      <view class='scoreTle'>连贯性</view>
+      <view class='scoreStar'>
+        <image src='../../images/scores.png' wx:for="{{detail.coherence}}"></image>
+        <image src='../../images/score.png' wx:for="{{5-detail.coherence}}"></image>
+      </view>
+    </view>
+    <view class='scoreItem'>
+      <view class='scoreTle'>手型</view>
+      <view class='scoreStar'>
+        <image src='../../images/scores.png' wx:for="{{detail.hand_shape}}"></image>
+        <image src='../../images/score.png' wx:for="{{5-detail.hand_shape}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="exercise" wx:if="{{detail.pics!=0}}">
+    <view class="ex_tle">陪练课堂笔记</view>
+    <view class='swiperBox'>
+      <swiper bindchange='changePic' indicator-dots="{{indicatorDots}}" current="{{current}}" indicator-active-color="#FE7F6E" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{detail.pics}}">
+          <swiper-item>
+            <image bindtap='preview' data-pic="{{detail.pics}}" data-cur="{{item}}" src="{{item}}" mode='widthFix' class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class='current'>{{current+1}}/{{detail.pics.length}}</view>
+    </view>
+
+
+
+  </view>
+</view>
+
+<view class="btnsend" style='border-top:1rpx solid #ebebeb' wx:if="{{detail.comment.length==0}}">
+  <view class="buttons" bindtap='toskip' data-id='{{detail.id}}'>主课老师批阅</view>
+</view>
+
+<view class='comment_tle' wx:if="{{detail.comment.length!=0}}">
+  <text>主课老师批阅</text>
+  <image src='../../images/downs.png'></image>
+</view>
+
+
+
+<view class='huiping' wx:if="{{detail.comment.length!=0}}" style='padding:40rpx 20rpx'>
+  <view class="header">
+    <view class="h_l">
+      <image src="../../images/avatar.png"></image>
+      <text>{{detail.comment.username}}</text>
+    </view>
+    <view>
+      <!-- <text style="font-size:32rpx;color:#FE7F6E;margin-right:20rpx;">课堂录音</text>
+      <image src="../../images/record_more.png" class="editIcon"></image> -->
+    </view>
+  </view>
+
+  <view class="workdetail">
+    <!-- <view class="className">{{detail.lesson_name}}</view> -->
+    <view class="workCont">
+      {{detail.comment.content}}
+    </view>
+    <view class="audioBox">
+      <view class='top_acts'>
+        <view class='start_act'>{{p_pass_time}}</view>
+        <view class="line"></view>
+        <view class='end_act'>{{detail.comment.audio_time}}</view>
+      </view>
+      <image wx:if="{{P_playing==false && P_endPlay==false}}" src="../../images/rplay.png" class="initPlay" bindtap='P_playRec'></image>
+      <image wx:if="{{P_playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='P_endPlay'></image>
+      <image wx:if="{{P_playing==false && P_endPlay==true}}" src="../../images/rplay.png" class="initPlay" bindtap='P_contiunePlay'></image>
+      <view class='moveline' style="width:{{width}}rpx"></view>
+    </view>
+
+  </view>
+
+</view>

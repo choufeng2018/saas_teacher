@@ -1,0 +1,96 @@
+<!--pages/my/my.wxml-->
+
+<view class="my">
+  <view class='topBg'>
+  <image class='bgTop' mode='scaleToFill' src='../../images/teacherBg.png'></image>
+  <view class='topInfo'>
+    <image mode='scaleToFill' src='{{detail.avatar}}'></image>
+    <view class='info_detail'>
+      <view class='Nsize'>{{detail.username}}</view>
+      <!-- <view class='Ssize'>{{name}}</view> -->
+    </view>
+  </view>
+  </view>
+
+  <view class='itemBox'>
+    
+    <!-- <view class="item Nsize cell-space" bindtap="selectEgency" data->
+      <view>
+        <image src='../../images/jigou.png'></image>
+        <text>机构</text>
+      </view>
+      <view>
+        <text style='color:#f76605'>{{name}}</text>
+        <image src="../../images/enter.png" />
+      </view>
+    </view> -->
+
+    <!-- <view class="item Nsize cell-space" bindtap="setting" data-avatar="{{detail.avatar}}" data-username="{{detail.username}}">
+      <view>
+        <image src='../../images/shezhi.png'></image>
+        <text>设置</text>
+      </view>
+
+      <image src="../../images/enter.png" />
+    </view> -->
+
+    <!-- <view class="item Nsize cell-space" bindtap="fankui">
+      <view>
+        <image src='../../images/fankui.png'></image>
+        <text>意见反馈</text>
+      </view>
+
+      <image src="../../images/enter.png" />
+    </view> -->
+
+    <!-- <view class="item Nsize cell-space" bindtap='mystu'>
+      <view>
+        <image src='../../images/mystu.png'></image>
+        <text>我的学员</text>
+      </view>
+      <view>
+       
+        <image src="../../images/enter.png" />
+      </view>
+    </view> -->
+
+
+
+    <view class="item Nsize cell-space version">
+      <view>
+        <image src='../../images/version.png'></image>
+        <text>版本</text>
+      </view>
+      <view>
+        <text style='color:#f76605'>1.1.0</text>
+        <!-- <image src="../../images/enter.png" /> -->
+      </view>
+    </view>
+
+    <!-- <view class="item Nsize cell-space" data-avatar="{{detail.avatar}}" data-username="{{detail.username}}">
+      <view>
+        <image src='../../images/feedback.png'></image>
+        <text>意见反馈</text>
+      </view>
+
+      <image src="../../images/enter.png" />
+    </view> -->
+    <view class='loginout' bindtap='loginOut'>退出登录</view>
+  </view>
+
+
+
+  <!-- <view class="item Nsize engency" bindtap="egency" data-id="{{detail.agency_id}}" data-name="{{name}}" data-logo="{{logo}}" data-mobile="{{detail.agency.mobile}}" data-address="{{detail.agency.address}}">
+    <image src="{{logo}}" />
+    <view class="rightDesc">
+      <view class="Nsize">{{name}}</view>
+      <view class="Nsize">{{detail.username}} | {{type_text}}</view>
+    </view>
+  </view>
+  <view class="rights">
+    <view class="tle Nsize">我的权限</view>
+    <view class="rightsList">
+      <view class="rightsItem" wx:for="{{detail.group.rules_list}}">{{item.title}}</view>
+    </view>
+  </view> -->
+</view>

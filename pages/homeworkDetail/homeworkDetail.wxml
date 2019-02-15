@@ -1,0 +1,82 @@
+<!--pages/homeworkDetail/homeworkDetail.wxml-->
+<view class="mainTeacher" bindtap='menu'>
+  <view class="header">
+    <view class="h_l">
+      <image src="../../images/avatar.png"></image>
+      <text>{{detail.username}}</text>
+    </view>
+    <image wx:if="{{detail.is_edit==1}}" src="../../images/moresss.png" data-detail="{{detail}}" catchtap="{{!buttonClicked?'edit':''}}" class="editIcon"></image>
+    <view class='menu' wx:if="{{menuShow==true}}">
+      <view class='menuItem' catchtap='toEdit' data-pid="{{detail.practice_id}}">编辑作业</view>
+      <view class='menuItem' catchtap='delateWork' data-pid="{{detail.practice_id}}">删除作业</view>
+    </view>
+  </view>
+
+  <view class="workdetail">
+    <view class="className" wx:if="{{detail.title!=''}}">{{detail.title}}</view>
+    <view class="workCont">
+      {{detail.desc}}
+      <text wx:if="{{detail.desc==''}}">暂无作业要求</text>
+    </view>
+    <view class="audioBox" wx:if="{{detail.audio!=''}}">
+      <view class='top_acts'>
+        <view class='start_act'>{{pass_time}}</view>
+        <!-- <view class="line"></view> -->
+        <view class='end_act' >{{total_time}}</view>
+      </view>
+<!-- 
+      <view class='time_view'>
+  <view>{{pass_time}}</view>
+  <view>{{total_time}}</view>
+</view> -->
+
+      <view class='slider_bg'>
+        <wxzx-slider id='wxzxSlider' blockSrc='../../images/slider.png' blockImageWidth='34' blockImageHeight='34' value='{{value}}' max='{{max}}' percent='{{percent}}' width='390' bind:sliderTap="sliderTap" bind:sliderStart="sliderStart" bind:sliderChange="sliderChange"
+            bind:sliderEnd="sliderEnd" bind:sliderCancel="sliderCancel" slider-left='15' disabled='{{disabled}}'></wxzx-slider>
+      </view>
+
+      <image wx:if="{{playing==false && endPlay==false}}" src="../../images/rplay.png" class="initPlay" bindtap='playRec'></image>
+      <image wx:if="{{playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='endPlay'></image>
+      <image wx:if="{{playing==false && endPlay==true}}" src="../../images/rplay.png" class="initPlay" bindtap='contiunePlay'></image>
+    </view>
+    <view class="workInfo">
+      <view class="info_item">{{detail.student_name}}</view>
+      <!-- <view class="info_item">李老师</view>
+      <view class="info_item">2018-11-12</view> -->
+    </view>
+  </view>
+
+  <view class="exercise">
+    <view class="ex_tle">练习曲目</view>
+    <view class='swiperBox'>
+
+    <swiper bindchange='changePic' indicator-dots="{{indicatorDots}}" current="{{currents}}" indicator-active-color="#FE7F6E" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{detail.pics}}">
+        <swiper-item>
+          <image bindtap='preview' data-pic="{{detail.pics}}"  data-cur="{{item}}" src="{{item}}" mode='scalTofill' class="slide-image" />
+        </swiper-item>
+      </block>
+      
+    </swiper>
+    <view class='current'>{{currents+1}}/{{detail.pics.length}}</view>
+    </view>
+
+  </view>
+</view>
+
+<view class='comment_tle' wx:if="{{detail.comment.length!=0}}">
+  <text>陪课老师点评</text>
+  <image src='../../images/downs.png'></image>
+</view>
+
+<view class='commBox' wx:if="{{detail.comment.length!=0}}">
+  <view wx:for="{{detail.comment}}" class='comList cell-space' data-id="{{item.id}}" bindtap='toComment'>
+    <view class='c_left'>
+      <text>{{item.kpl_teacher.name}}</text>
+      <text>{{item.date}}</text>
+      <text>{{item.week}}</text>
+      <text>{{item.time}}</text>
+    </view>
+    <image class='c_right' src='../../images/rights.png'></image>
+  </view>
+</view>

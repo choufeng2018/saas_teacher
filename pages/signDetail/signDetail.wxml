@@ -1,0 +1,93 @@
+<!--pages/signDetail/signDetail.wxml-->
+<view class='top'>
+  <view style="font-size:32rpx;margin-bottom:40rpx" class='course'>
+    <image src='../../images/roomset.png'></image>
+    <text> {{signDetail.lesson}}</text>
+  </view>
+  <view class='course' style='margin-bottom: 40rpx;'>
+
+    <view class='topItem Ssize'>{{signDetail.class_room}}</view>
+    <view class='topItem Ssize'>{{signDetail.date}} {{signDetail.begin_time}}-{{signDetail.end_time}}</view>
+
+  </view>
+
+
+
+
+  <view wx:if="{{signDetail.status==1}}" class='cehckbtn Nsize' bindtap='jieke' data-status="{{signDetail.status}}">未结课</view>
+  <view wx:if="{{signDetail.status==2}}" class="cehckbtn Nsize {{signDetail.status==2?'uncourseComment':'cehckbtn' }}" bindtap='jieke' data-status="{{signDetail.status}}">已结课</view>
+  <!-- <image class='acts' src='../../images/moresss.png' bindtap='acts'></image> -->
+  <view class='menu' wx:if="{{menuShow==true}}">
+    <view class='menuItem' bindtap='editKejie' data-detail="{{signDetail}}">编辑课节</view>
+    <view class='menuItem' bindtap='delateKejie' data-sid="{{signDetail.id}}">删除课节</view>
+  </view>
+</view>
+
+<!-- <view class='signact'>
+<view class='signItem' bindtap='delateKejie' data-sid="{{signDetail.id}}">删除课节</view>
+<view class='signItem' bindtap='editKejie' data-detail="{{signDetail}}">编辑课节</view>
+</view> -->
+
+
+
+<view class='signlist'>
+  <block wx:for="{{signDetail.student_list}}" wx:for-index="idx">
+    <view class='listItem'>
+      <view class='left'>
+        <view class='avatar' bindtap='toStu' data-stu_id='item.student_id'>
+          <image src='{{item.avatar}}' mode='scaleToFill'></image>
+        </view>
+        <view class='itemDesc'>
+          <view class='username cell-space'>
+            <text>{{item.username}}</text>
+            <text class='courseTime Ssize'>总剩余课时: {{item.rest_lesson}}</text> </view>
+
+          <!-- <view>{{item.mobile}}</view> -->
+          <!-- <view class='courseTime Ssize'>总剩余课时 {{item.rest_lesson}}</view> -->
+        </view>
+      </view>
+      <view class='actBox'>
+        <view class="actItem {{item.shedule_info.sign_status==1?'hasComment':''}} {{item.shedule_info.comment_status==5?'late':''}}" data-shedule_id="{{item.shedule_id}}" data-student_id="{{item.student_id}}" bindtap='Tosign'>{{item.shedule_info.sign_status_text}}</view>
+        
+        <view class="actItem {{item.shedule_info.comment_status==1?'hasComment':''}}" bindtap='comment' data-shedule_id="{{item.shedule_id}}" data-student_id="{{item.student_id}}" data-sign_status="{{item.shedule_info.sign_status}}" data-comment_status="{{item.shedule_info.comment_status}}">{{item.shedule_info.comment_status_text}}</view>
+
+        <view wx:if="{{item.shedule_info.is_work==0}}" class='actItem' bindtap='sendwork' data-detail="{{signDetail}}" data-index="{{idx}}">布置作业</view>
+
+        <view wx:if="{{item.shedule_info.is_work==1}}" class="actItem {{item.shedule_info.is_work==1?'hasComment':''}}" data-sid="{{item.shedule_id}}" data-id="{{item.third_id}}" bindtap='checkWork'>查看作业</view>
+      </view>
+      <!-- <view class='btn'>
+        <view class="unsure {{item.shedule_info.sign_status==1?'hasComment':''}} {{item.shedule_info.comment_status==5?'late':''}}" data-shedule_id="{{item.shedule_id}}" data-student_id="{{item.student_id}}" bindtap='Tosign'>
+          {{item.shedule_info.sign_status_text}}
+        </view>
+        <view class="uncourseComment {{item.shedule_info.comment_status==1?'hasComment':''}}" bindtap='comment' data-shedule_id="{{item.shedule_id}}" data-student_id="{{item.student_id}}" data-sign_status="{{item.shedule_info.sign_status}}" data-comment_status="{{item.shedule_info.comment_status}}">{{item.shedule_info.comment_status_text}}</view>
+
+      </view> -->
+    </view>
+  </block>
+</view>
+
+<view class='alertBox' wx:if="{{showAlert}}">
+  <view class='alert'>
+    <view class='is_decum'>
+      <view class='alertTle Nsize'>是否扣课时</view>
+      <view class='decumBox Nsize'>
+        <view wx:for="{{deduct}}" class="{{index==deductIndex ? 'actives':''}}" data-deIndex="{{index}}" bindtap='deduct'>{{item.txt}}</view>
+
+      </view>
+    </view>
+    <view class='sign_statuss Nsize'>
+      <view class='alertTle'>选择签到状态</view>
+      <view class='decumBox'>
+        <view wx:for="{{statu}}" class="{{index==statuIndex ? 'actives':''}}" data-staCur='{{index}}' bindtap='selectStatu'>{{item.statusTxt}}</view>
+
+      </view>
+    </view>
+
+    <view class='btnBox'>
+      <view bindtap='cancel'>取消</view>
+      <view bindtap='sure'>确认</view>
+    </view>
+  </view>
+</view>
+
+<!-- <view class='edit' bindtap='editPaike'>删除</view> -->

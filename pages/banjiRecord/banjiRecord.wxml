@@ -1,0 +1,35 @@
+<!--pages/banjiRecord/banjiRecord.wxml-->
+<view class="recordlist" wx:if="{{recordList.length!=0}}">
+  <view class="recordItem" wx:for="{{recordList}}">
+    <view class="recordLeft">
+      <text>课堂录音-{{index+1}}</text>
+      <text>{{item.time}}</text>
+    </view>
+
+    <image src="{{imgHoverIndex == index ? playIcon:initIcon}}" data-index='{{index}}' data-audio="{{item.url}}" data-time="{{item.time}}" data-seconds="{{item.seconds}}" bindtap='selectAudio'></image>
+
+  </view>
+
+</view>
+<view class='NoDatas' wx:if="{{recordList.length==0}}">
+  <image src='../../images/norecord.png'></image>
+</view>
+
+<view class="audioBox" wx:if="{{recordList.length!=0}}">
+  <view class='top_acts'>
+    <view class='start_act'>{{pass_time}}</view>
+    <!-- <view class="line"></view> -->
+    <view class='end_act'>{{total_time}}</view>
+  </view>
+
+  <view class='slider_bg'>
+    <wxzx-slider id='wxzxSlider' blockSrc='../../images/slider.png' blockImageWidth='56' blockImageHeight='56' value='{{value}}' max='{{max}}' percent='{{percent}}' width='480' bind:sliderTap="sliderTap" bind:sliderStart="sliderStart" bind:sliderChange="sliderChange"
+      bind:sliderEnd="sliderEnd" bind:sliderCancel="sliderCancel" slider-left='15' disabled='{{disabled}}'></wxzx-slider>
+  </view>
+
+
+  <image wx:if="{{P_playing==false && P_endPlay==false}}" src="../../images/rplay.png" class="initPlay" bindtap='P_playRec'></image>
+  <image wx:if="{{P_playing==true}}" src="../../images/stop.png" class="initPlay" bindtap='P_endPlay'></image>
+  <image wx:if="{{P_playing==false && P_endPlay==true}}" src="../../images/rplay.png" class="initPlay" bindtap='P_contiunePlay'></image>
+
+</view>

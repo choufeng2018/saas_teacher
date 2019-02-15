@@ -1,0 +1,8 @@
+<!--pages/fankui/fankui.wxml-->
+<view class='top'>
+<view class='box'>
+<textarea placeholder='请输入建议' placeholder-style='font-size:28rpx;' bindinput='advise'></textarea>
+</view>
+</view>
+
+<button style='background:#f76605;width:710rpx;margin: 32rpx auto;color:#fff' bindtap='submit'>提交</button>

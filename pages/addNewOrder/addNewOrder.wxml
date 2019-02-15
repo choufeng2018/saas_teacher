@@ -1,0 +1,122 @@
+<!--pages/addNewOrder/addNewOrder.wxml-->
+
+<view class='top Nsize'>
+  <view class='item cell-space' style='padding:0'>
+    <text>订单类型</text>
+    <picker bindchange="contractChange" value="{{index}}" range="{{contract_type}}" range-key='txt'>
+      <view class="picker" style='text-align:right'>
+        <text wx:if="{{index==''}}">{{contract_type[0].txt}}</text>{{contract_type[index].txt}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='item cell-space' style='display:none'>
+    <text>订单状态</text>
+    <picker bindchange="orderChange" value="{{statuindex}}" range="{{statu}}" range-key='txt'>
+      <view class="picker">
+        <text wx:if="{{statuindex==''}}">{{statu[0].txt}}</text>{{statu[index].txt}}
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='orderBox'>
+  <view class='item cell-space Nsize'>
+    <view>选择课程</view>
+    <view>{{detail.name}}</view>
+  </view>
+  <view class='item cell-space Nsize'>
+    <view>课时数</view>
+    <!-- <view>{{detail.hour}}</view> -->
+    <view>
+      <input type='number' bindinput='keshiNum' placeholder='请输入课时数' value='{{hour}}'></input>
+    </view>
+  </view>
+
+  <!-- <view class='item cell-space Nsize'>
+    <view>课程单价</view>
+    <input type='number' bindinput='inpuPrice' placeholder='请输入单价'></input>
+  </view> -->
+
+  <view class='item cell-space Nsize'>
+    <view>课程总价</view>
+    <!-- <view>￥{{summaryPrice}}</view> -->
+    <input type='number' bindinput='summary' value='' placeholder='请输入总价'></input>
+  </view>
+
+
+
+
+</view>
+
+<view class='edit' wx:if="{{contarctId==1}}">
+  <view class='item cell-space Nsize'>
+    <view>其他金额</view>
+    <input type='number' bindinput='otherFee' placeholder='{{fee}}' value='{{place}}'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+    <view>已上课时(选填)</view>
+    <input type='number' bindinput='hasCourse' placeholder='0'></input>
+  </view>
+
+  <view class='item cell-space Nsize'>
+    <view>优惠折扣</view>
+    <input type='number' style='margin-right:-50rpx;' placeholder-style='color:#a5a5a5' bindinput='discount' placeholder="{{discount*100}}" value='{{youhui}}'></input>%
+  </view>
+
+  <view class='item cell-space Nsize'>
+    <view>其他优惠</view>
+    <input type='number' bindinput='free_money' placeholder='{{free_money}}' value='{{place}}'></input>
+  </view>
+</view>
+
+<view class='stu item cell-space Nsize'>
+  <view>签约日期</view>
+  <picker mode="date" value="{{date}}" bindchange="dateChange">
+    <view class="picker Nsize" style='text-align:right'>
+      {{date}}
+    </view>
+  </picker>
+</view>
+
+<view class='stu item cell-space Nsize' bindtap='select'>
+  <view>选择学员</view>
+  <image src='../../images/rightArrow.png'></image>
+</view>
+<view class='box' wx:if="{{muti_choose}}">
+  <view class='boxItem' wx:for="{{muti_choose}}">
+    <view class='avatar'>
+      <image class='image' src='{{item.avatar}}'></image>
+    </view>
+    <view class='Ssize' wx:if="{{item.name!=''}}">{{item.name}}</view>
+    <view class='Ssize' wx:if="{{item.username!=''}}">{{item.username}}</view>
+  </view>
+</view>
+
+
+<view class='remark'>
+  <textarea placeholder='备注' bindinput='remark' cursor-spacing='100'></textarea>
+</view>
+
+<!-- <view class='bt-fixed' >新增</view> -->
+
+<view class='bottom' style='z-index:9999'>
+  <view wx:if="{{contarctId==1}}" class='totals'>
+    <view class='sbb'>总金额:
+      <text>{{realtotal}}</text>
+    </view>
+    <view>优惠:￥{{hasfree}}</view>
+  </view>
+  <view wx:if="{{contarctId==3}}" class='totals'>
+    <view class='sbb'>应收总额:
+      <text>0</text>
+    </view>
+    <view>已优惠:￥{{total}}</view>
+  </view>
+  <!-- <view wx:if="{{contarctId==1}}">应收总额:{{realtotal}}</view>
+  <view wx:if="{{contarctId==3}}">应收总额:0</view>
+  <view wx:if="{{contarctId==1}}">已优惠:￥{{hasfree}}</view>
+  <view wx:if="{{contarctId==3}}">已优惠:￥{{total}}</view> -->
+  <view bindtap='add' style='z-index:9999' class='addss'>确定</view>
+</view>
